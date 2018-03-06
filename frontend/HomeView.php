@@ -3,6 +3,30 @@
 <!--Home Title-->
 <div id="title" class="slide header">
 <h1 id="titre">Billet simple pour l'Alaska</h1>
+<div id="identify">
+  <button class="identifyB">s'identifier</button>
+<div class="register">
+<div class="close">X</div>
+<form action="index.php" method="post">
+
+                                <div>
+                                <label for="pseudo">Pseudo</label><br />
+                                <input type="text" id="pseudo" name="username">
+                                </div>
+                                <div>
+                                <label for="motDePasse">Mot de passe</label><br />
+                                <input type="password" id="motDePasse" name="password">
+                                </div>
+                                <div>
+                                <input id="submit" type="submit" value="GO !">
+                                </div>
+                                <div class="compte">Pas encore inscrit ? <span class="compteLien"><a href="frontend/SubscribeView.php">Créez un compte !</a></span>
+                                </div>
+                        </form>
+</div>
+
+
+</div>
 </div>
 
 <div id="slide1" class="slide">

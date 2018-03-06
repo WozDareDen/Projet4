@@ -1,8 +1,23 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
+@import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700);
 /***************CHAPTER VIEW**********************/
+body{
+    font-size: 16px;
+    margin:0;
+    padding:0;
+}
+a{
+    text-decoration: none;
+}
 .main{
     display: flex;
     flex-direction: column;
+    padding: 10px;
+    margin: 2% 5%;
+    border-radius: 5px;
+    border: 1px solid black;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 12px rgba(0, 0, 0, .7);
 }
 .entree{
     align-self: center;
@@ -12,9 +27,49 @@ h1{
     font-size: 100px;
     font-family: 'Brush script MT';
 }
+h2{
+    text-align: center;
+}
 .sortie{
     width:60%;
     text-align: justify;
     align-self: center;
     font-family: 'Nunito';
+}
+img{
+    width: 620px;
+    height: 480px;
+    transform: translateZ(.25px) scale(.75) rotate(2deg);
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+.comments, .sub{
+    border: 1px solid black;
+    padding: 10px;
+    max-width:40%;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+.sortie p{
+    font-size: 20px;
+}
+.comments{
+    margin: 5% 0 5% 10%;
+}
+.taille{
+    font-size: 20px;
+    font-weight: bold;
+}
+.sub{
+    margin:auto;
+    font-family: 'roboto';
+}
+.italic{
+    font-style: italic;
+}
+.blue{
+    color: rgb(160, 32, 143);
 }
