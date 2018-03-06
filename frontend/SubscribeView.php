@@ -1,0 +1,2 @@
+<?php
+//Subscribe Page View

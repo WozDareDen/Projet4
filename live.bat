@@ -1,0 +1,1 @@
+browser-sync start --proxy "localhost/Projet4" --files "public/css/*.css,*.html,*.php,public/js/*.js"

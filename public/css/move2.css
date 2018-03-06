@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+/***************CHAPTER VIEW**********************/
+.main{
+    display: flex;
+    flex-direction: column;
+}
+.entree{
+    align-self: center;
+}
+h1{
+    text-align: center;
+    font-size: 100px;
+    font-family: 'Brush script MT';
+}
+.sortie{
+    width:60%;
+    text-align: justify;
+    align-self: center;
+    font-family: 'Nunito';
+}
