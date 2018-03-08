@@ -7,7 +7,7 @@
                         <h1 id="chapterName"><?= htmlspecialchars($post['title']) ?></h1>
 
 <!--getChapterImg--> 
-                        <img src="<?= $post['chapter_img'] ?>" alt="toto" title="toto" />
+                        <img src="<?= $post['chapter_img'] ?>" alt="illustration du chapitre" title="photo n&b" />
 
 <!--getChapterDate-->                
                         <p class="edition">Posté le <?= $post['chapter_date_fr'] ?> <a href="#comments">Commentaires</a></p>

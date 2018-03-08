@@ -13,7 +13,7 @@ body {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  font-family: Nunito;
+  font-family:'Nunito';
 }
 
 h2 {
@@ -52,6 +52,10 @@ a{
   text-decoration: none;
   color:#414C81;
 }
+.JF{
+  font-weight: bold;
+  font-size:105%;
+}
 img:last-of-type {
   transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
 }
@@ -73,7 +77,17 @@ img:last-of-type {
   background: rgba(240,230,220, .7);
   box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
-
+.title2{
+  margin-top: 100px;
+  width: 60%;
+  padding: 5%;
+  border-radius: 5px;
+  background: rgba(240,230,220, .7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  margin-right: 0;
+  margin-left: auto;
+  text-align: justify;
+}
 .slide:nth-child(2n) .title {
   margin-left: 0;
   margin-right: auto;
@@ -201,6 +215,7 @@ h3{
 }
 .menuChapitre{
   width:100%;
+  z-index:10000;
 }
 #slide4{
   display:none;

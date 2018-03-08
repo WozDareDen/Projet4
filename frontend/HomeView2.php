@@ -1,12 +1,8 @@
 <?php $title = 'Accueil'; ?>
 <?php ob_start(); ?>
 <!--Home Title-->
-<div id="title" class="slide">
+<div id="title" class="slide header">
 <h1 id="titre">Billet simple pour l'Alaska</h1>
-<div class="title2">
-<p>Bienvenue sur le blog de l'acteur et écrivain <span class="JF">Jean Forteroche</span>. Il travaille actuellement sur son prochain roman. Dans la grande tradition des romans-feuilleton du XIXème siècle et à l'instar du maître du fantastique Stephen King avec La Ligne Verte, il souhaite publier sa dernière oeuvre par épisodes. Il se positionne en feuilletoniste du XXIème siècle et souhaite, à travers les possibilité offertes par le web dont découlent les nouveaux usages de lecture, se rapprocher de ses lecteurs, rompant ainsi la distance d'un auteur avec son public. 
-</p>
-</div>
 <div id="identify">
   <button class="identifyB">s'identifier</button>
 <div class="register">
@@ -58,16 +54,17 @@ $postAll->closeCursor();
 
 <div id="slide2" class="slide">
 <div class="title">
-  <h2>Qui es-tu Jean Forteroche ?</h2>
+  <h2>Jean Forteroche</h2>
   <p>Comment diable un homme peut-il se réjouir d'être réveillé à 06h30 du matin par une alarme, bondir hors de son lit, avaler sans plaisir une tartine, chier, pisser, se brosser les dents et les cheveux, se débattre dans le trafic pour trouver une place, où essentiellement il produit du fric pour quelqu'un d'autre, qui en plus lui demande d'être reconnaissant pour cette opportunité ?</p>
 </div>
 <img src="public/images/charles5.jpg">
 <img src="public/images/charles2-min.jpg">
 </div>
-<!--Last Chapter View (getChapterTitle, getChapterImage & getChapterExtract)-->
+<!--Last Chapter View (getChapterTitle, getChapterImage & getChapterExtract)-->o
 <div id="slide3" class="slide">
 <div class="title">
   <h2>Dernier Chapitre</h2>
+
   <h3><a href="#">Le diable tout le temps</a></h3>
   <p>Si quelque chose brûle votre âme avec un but et un désir, il est de votre devoir d'en être réduit en cendres. Toute autre forme d'existence sera encore un autre livre ennuyeux dans la bibliothèque de la vie. Trouvez ce que vous aimez et laissez-le vous tuer...</p>
 </div>
@@ -75,6 +72,10 @@ $postAll->closeCursor();
 
 </div>
 
+<div id="slide4" class="slide header toto">
+  <h2>Footer.php</h2>
+  
+</div>
 
 <!--template.php-->
 <?php $content = ob_get_clean(); ?>
