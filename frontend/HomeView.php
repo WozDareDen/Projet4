@@ -24,7 +24,7 @@
                                 <div>
                                 <input id="submit" type="submit" value="GO !">
                                 </div>
-                                <div class="compte">Pas encore inscrit ? <span class="compteLien"><a href="frontend/SubscribeView.php">Créez un compte !</a></span>
+                                <div class="compte">Pas encore inscrit ? <span class="compteLien"><a href="index.php?action=subView">Créez un compte !</a></span>
                                 </div>
                         </form>
 </div>
@@ -68,11 +68,20 @@ $postAll->closeCursor();
 <div id="slide3" class="slide">
 <div class="title">
   <h2>Dernier Chapitre</h2>
-  <h3><a href="#">Le diable tout le temps</a></h3>
-  <p>Si quelque chose brûle votre âme avec un but et un désir, il est de votre devoir d'en être réduit en cendres. Toute autre forme d'existence sera encore un autre livre ennuyeux dans la bibliothèque de la vie. Trouvez ce que vous aimez et laissez-le vous tuer...</p>
-</div>
-<img id="main" src="public/images/main-min.jpg">
+  <?php 
+$lastData = $lastPost->fetch();
 
+?>
+  <h3><a href="index.php?action=post&id=<?= $lastData['id'] ?>"><?= htmlspecialchars($lastData['title']) ?></a></h3>
+  <p><?= substr(htmlspecialchars($lastData['chapter_text']),0,263);
+?>...</p>
+</div>
+<img id="main" src="<?= htmlspecialchars($lastData['chapter_img']) ?>" alt="illustration du chapitre" title="photo n&b"/>
+<?php
+
+
+$lastPost->closeCursor(); 
+?>
 </div>
 
 

@@ -34,7 +34,7 @@
                         </form>
 </div>
 <div>
-                        <p><a href="../index.php">Revenir à la page d'accueil</a></p>
+                        <p><a href="index.php">Revenir à la page d'accueil</a></p>
                 </div>
 </div>
 <?php $content = ob_get_clean(); ?>

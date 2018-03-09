@@ -19,17 +19,12 @@ function setAllChapters()
     $commentManager = new CommentManager();
 
     $postAll = $chapterManager -> getAllChapters();
+
+    // $lastChapterManager = new ChapterManager();
+    $lastPost = $chapterManager -> getLastChapter();
     
     require('frontend/HomeView.php');
 }
-
-function setLastChapter()
-{
-    $chapterManager = new ChapterManager();
-    $lastPost = $chapterManager -> getLastChapter();
-    require('frontend/HomeView.php');
-}
-
 
 function addComment($id_Chapters, $id_Users, $comment_text)
 {
@@ -42,3 +37,7 @@ function addComment($id_Chapters, $id_Users, $comment_text)
         header('Location: index.php?action=post&id=' . $id_Chapters);
     }
 }    
+
+function subView(){
+    require('frontend/SubscribeView.php');
+}

@@ -9,7 +9,7 @@ try{
                 setChapter($_GET['id']);
             }
             else {
-                throw new Exception('Erreur : aucun identifiant de billet envoyé');
+                throw new Exception('aucun identifiant de billet envoyé');
             }
         }
 
@@ -19,14 +19,17 @@ try{
                     addComment($_GET['id'], $_POST['id_Users'], $_POST['comment_text']);
                 }
                 else {
-                    throw new Exception('Erreur : tous les champs ne sont pas remplis !');
+                    throw new Exception('tous les champs ne sont pas remplis !');
                 }
             }
             else {
-                throw new Exception('Erreur : aucun identifiant de billet envoyé');
+                throw new Exception('aucun identifiant de billet envoyé');
             }
         }   
-    }
+        elseif ($_GET['action'] == 'subView'){
+            subView();
+        }
+    }   
     else {
         setAllChapters();
     }
