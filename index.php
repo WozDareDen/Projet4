@@ -1,6 +1,9 @@
 <?php
+session_start();
+
 //Routeur require Controller 
 require('controller/controller.php');
+
 // //gestion des erreurs
 try{
     if (isset($_GET['action'])) {
@@ -25,9 +28,35 @@ try{
             else {
                 throw new Exception('aucun identifiant de billet envoyé');
             }
-        }   
+        }
+
         elseif ($_GET['action'] == 'subView'){
-            subView();
+            subView();            
+        }
+
+        elseif ($_GET['action'] == 'addUser'){
+            if(strlen(htmlspecialchars($_POST['username'])) <= 25 ){
+                if(htmlspecialchars($_POST['pass']) == htmlspecialchars($_POST['pass2'])){
+                    if(filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){
+                        newUser($_POST['username'], $_POST['pass'], $_POST['mail']);
+                    }
+                    else{
+                        throw new Exception('votre adresse mail n\'est pas valide');
+                    }
+                    
+                }
+                else{
+                    throw new Exception('vos mots de passes ne sont pas identiques');
+                }
+            }
+            else{
+                throw new Exception('votre pseudo dépasse les 25 caractères');
+            }
+        }
+        elseif ($_GET['action'] == 'record'){
+            if(isset($_SESSION['id']) && isset($_SESSION['username'])){
+            connected($username,$id);
+            }
         }
     }   
     else {
@@ -35,5 +64,5 @@ try{
     }
     }
 catch(Exception $e){
-    echo 'Erreur : ' . $e->getMessage();
+    require('frontend/error.php');
 }

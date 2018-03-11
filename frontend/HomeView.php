@@ -1,4 +1,5 @@
-<?php $title = 'Accueil'; ?>
+<?php $title = 'Accueil'; 
+?>
 <?php ob_start(); ?>
 <!--Home Title-->
 <div id="title" class="slide">
@@ -11,15 +12,15 @@
   <button class="identifyB">s'identifier</button>
 <div class="register">
 <div class="close">X</div>
-<form action="index.php" method="post">
+<form action="index.php?action=record" method="post">
 
                                 <div>
-                                <label for="pseudo">Pseudo</label><br />
-                                <input type="text" id="pseudo" name="username">
+                                <label for="username">Pseudo</label><br />
+                                <input type="text" id="username" name="username" placeholder="entrez votre pseudo">
                                 </div>
                                 <div>
-                                <label for="motDePasse">Mot de passe</label><br />
-                                <input type="password" id="motDePasse" name="password">
+                                <label for="pass">Mot de passe</label><br />
+                                <input type="password" id="pass" name="password" placeholder="entrez votre mot de passe">
                                 </div>
                                 <div>
                                 <input id="submit" type="submit" value="GO !">

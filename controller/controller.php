@@ -2,6 +2,7 @@
 //Calling Models :
 require_once('model/ChapterManager.php');
 require_once('model/CommentManager.php');
+require_once('model/UserManager.php');
 //Require Views :
 function setChapter($id)
 {
@@ -40,4 +41,17 @@ function addComment($id_Chapters, $id_Users, $comment_text)
 
 function subView(){
     require('frontend/SubscribeView.php');
+}
+
+function newUser($username, $pass, $mail)
+{
+    $userManager = new UserManager();
+    $connex = $userManager -> addUser($username, $pass, $mail);
+    header('Location: index.php');
+}
+
+function connected($username,$pass){
+    $userManager = new UserManager();
+    $keepIt = $userManager-> userConnex($username,$pass);
+    header('Location: index.php');
 }

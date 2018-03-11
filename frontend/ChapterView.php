@@ -24,7 +24,7 @@
 while ($comment = $comments->fetch())
 {
 ?>
-                        <p><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?></p>
+                        <p id="comments-<?= $comment->id ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?></p>
                         <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
 <?php
 }

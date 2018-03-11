@@ -265,3 +265,6 @@ h3{
   right:25px;
   color:rgb(182, 14, 14);
 }
+#pseudo, #motDePasse{
+  width:60%;
+}

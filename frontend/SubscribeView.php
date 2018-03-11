@@ -10,26 +10,26 @@
 <p class="sortie">Vous autorisez l'Administrateur du site à supprimer, modifier, déplacer ou fermer n'importe quel message pour n'importe quelle raison et sans autorisation préalable de votre part.</p>
 <p class="sortie">Ce site est excusivement à vocation pédagogique et s'inscrit dans le cadre du parcours OpenClassRooms Développeur Web Junior.</p>
 <div class="sub">
-                        <form action="subscribeView.php" method="post">
+                        <form action="index.php?action=addUser" method="post">
                                 <div>
-                                <label for="pseudo">Pseudo</label><br />
-                                <input type="text" id="pseudo" name="username">
+                                <label for="username">Pseudo</label><br />
+                                <input type="text" id="username" name="username" required="valid" placeholder="choisissez votre pseudo" > 
                                 </div>
                                 <div>
-                                <label for="motDePasse">Mot de passe</label><br />
-                                <input type="password" id="motDePasse" name="password">
+                                <label for="pass">Mot de passe</label><br />
+                                <input type="password" id="pass" name="pass" required="valid" placeholder="choisissez votre mot de passe">
                                 </div>
                                 <div>
-                                <label for="motDePasse">Confirmation du mot de passe</label><br />
-                                <input type="password" id="motDePasse" name="password">
+                                <label for="pass2">Confirmation du mot de passe</label><br />
+                                <input type="password" id="pass2" name="pass2" required="valid" placeholder="confirmez votre mot de passe">
                                 </div>
                                 <div>
                                 <label for="mail">Adresse email</label><br />
-                                <input type="text" id="mail" name="mail">
+                                <input type="text" id="mail" name="mail" required="valid" placeholder="renseignez votre email" >
                                 </div>
                                 <div>
-                                <input type="checkbox" name="choix" required="valid">J'ai lu les règles d'usage et j'accepte de les respecter.</br>
-                                <input type="submit" value="S'inscrire" />
+                                <input type="checkbox" name="choix" required="valid"> J'ai lu les règles d'usage et j'accepte de les respecter.</br>
+                                <input type="submit" name="addUser" value="S'inscrire" />
                                 </div>
                         </form>
 </div>

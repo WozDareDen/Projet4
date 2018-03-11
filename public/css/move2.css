@@ -73,3 +73,10 @@ img{
 .blue{
     color: rgb(160, 32, 143);
 }
+#username, #pass, #pass2, #mail{
+    width:60%;
+}
+#newOne{
+    color: red;
+    font-size: 2rem;
+}
