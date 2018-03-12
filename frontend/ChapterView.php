@@ -15,7 +15,7 @@
                 </div>
 <!--getChapterText-->    
                 <div class="sortie">
-                        <p><?= nl2br(htmlspecialchars($post['chapter_text'])) ?></p>      
+                        <p><?= $post['chapter_text'] ?></p>      
                 </div>
                 <div class="comments" id="comments">
                         <h2>Commentaires</h2>

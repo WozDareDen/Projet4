@@ -20,7 +20,7 @@
                                 </div>
                                 <div>
                                 <label for="pass">Mot de passe</label><br />
-                                <input type="password" id="pass" name="password" placeholder="entrez votre mot de passe">
+                                <input type="password" id="pass" name="pass" placeholder="et votre mot de passe">
                                 </div>
                                 <div>
                                 <input id="submit" type="submit" value="GO !">
@@ -45,7 +45,7 @@
     while ($data = $postAll->fetch())
 {
     ?>
-            <li><a href="index.php?action=post&id=<?= $data['id'] ?>">Chapitre <?=($data['id'])?> : <?= htmlspecialchars($data['title']) ?></a></li>
+            <li><a href="index.php?action=post&id=<?= $data['id'] ?>">Chapitre <?=($data['chapter_number'])?> : <?= htmlspecialchars($data['title']) ?></a></li>
 <?php      
 }
 $postAll->closeCursor(); 
@@ -74,7 +74,7 @@ $lastData = $lastPost->fetch();
 
 ?>
   <h3><a href="index.php?action=post&id=<?= $lastData['id'] ?>"><?= htmlspecialchars($lastData['title']) ?></a></h3>
-  <p><?= substr(htmlspecialchars($lastData['chapter_text']),0,263);
+  <p><?= substr($lastData['chapter_text'],0,263);
 ?>...</p>
 </div>
 <img id="main" src="<?= htmlspecialchars($lastData['chapter_img']) ?>" alt="illustration du chapitre" title="photo n&b"/>

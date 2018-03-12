@@ -80,3 +80,22 @@ img{
     color: red;
     font-size: 2rem;
 }
+/* EDITION DESIGN */
+.commentsEdition{
+    border: 1px solid black;
+    padding: 10px;
+    max-width:80%;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+.advice{
+
+}
+.fatRed{
+    font-weight: bold;
+    color: red;
+}
+dt{
+    font-size: 1.3rem;
+}

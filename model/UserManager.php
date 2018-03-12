@@ -15,10 +15,24 @@ public function addUser($username, $pass, $mail){
     return $connex;
 }
 
-public function userConnex($username,$id){
+public function verifyUser(){
+    $db = $this -> dbConnect();
+    $reqUser = $db->prepare("SELECT username FROM users WHERE username = ?");
+    $reqUser->execute(array($_POST['username']));
+    $userAlreadyExist = $reqUser->rowCount();
+    return $userAlreadyExist;
+}
+
+
+
+
+
+
+
+public function userConnex($username,$pass){
 //  Récupération de l'utilisateur et de son pass hashé
     $db = $this -> dbConnect(); 
-    $req = $db->prepare('SELECT id, pass FROM users WHERE username = ?');
+    $req = $db->prepare('SELECT username, pass FROM users WHERE username = ?');
     $req->execute(array($username));
     $resultat = $req->fetch();
 
