@@ -1,7 +1,7 @@
 <?php
 // session_start();
 //Routeur require Controller 
-require('controller/controller.php');
+require('controller/frontOffice.php');
 
 // //gestion des erreurs
 try{
@@ -20,7 +20,7 @@ try{
                     addComment($_GET['id'], $_POST['id_Users'], $_POST['comment_text']);
                 }
                 else {
-                    throw new Exception('tous les champs ne sont pas remplis !');
+                    throw new Exception('tous les champs ne sont pas remplis');
                 }
             }
             else {
@@ -49,9 +49,12 @@ try{
                 throw new Exception('votre pseudo dépasse les 25 caractères');
             }
         }
-        elseif($_GET['action'] == 'write'){
-            pushChapter($_POST['title'],$_POST['chapter_number'],$_POST['chapter_img'],$_POST['chapter_text']);
-        }
+        
+       
+        // elseif($_GET['action'] == 'signal'){   
+        //     addSignal();
+           
+        // }
         // elseif ($_GET['action'] == 'record'){
         //     if(isset($_POST['username']) && isset($_POST['pass'])){
         //         if($_GET['username'] == $_POST['username'] && $_GET['pass'] == $_POST['pass']){
@@ -73,5 +76,5 @@ try{
     }
     }
 catch(Exception $e){
-    require('frontend/error.php');
+    require('views/frontend/error.php');
 }

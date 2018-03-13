@@ -5,34 +5,31 @@ require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
 require_once('model/AdminManager.php');
 //Require Views :
+
+// CHAPTER VIEW 
 function setChapter($id)
 {
     $chapterManager = new ChapterManager();
     $commentManager = new CommentManager();
     $post = $chapterManager -> getChapter($id);
     $comments = $commentManager -> getChapterComments($_GET['id']);
-    require('frontend/ChapterView.php');
+    require('views/frontend/ChapterView.php');
 }
-
+// HOME VIEW
 function setAllChapters()
 {
     $chapterManager = new ChapterManager();
     $postAll = $chapterManager -> getAllChapters();
     // $lastChapterManager = new ChapterManager();
     $lastPost = $chapterManager -> getLastChapter();    
-    require('frontend/HomeView.php');
+    require('views/frontend/HomeView.php');
 }
 
-function pushChapter($title, $chapter_number,$chapter_img, $chapter_text){
-    $adminManager = new AdminManager();
-    $postChapter = $adminManager -> postChapter($title, $chapter_number,$chapter_img, $chapter_text);
-    header('Location:index.php');
-}
-
-function addComment($id_Chapters, $id_Users, $comment_text)
+// GET COMMENTS TO DB & CHAPTERVIEW
+function addComment($id_Chapters, $id_Users, $comment_text, $signal)
 {
     $commentManager = new CommentManager();
-    $comments = $commentManager -> postChapterComment($id_Chapters, $id_Users, $comment_text);
+    $comments = $commentManager -> postChapterComment($id_Chapters, $id_Users, $comment_text, $signal);
     if ($comments === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
@@ -40,11 +37,18 @@ function addComment($id_Chapters, $id_Users, $comment_text)
         header('Location: index.php?action=post&id=' . $id_Chapters);
     }
 }    
-
+// GET SIGNAL TO DB & CHAPTERVIEW
+// function addSignal(){
+//     $signal = $_GET['signal'] + 1;
+//     $commentSignal = new AdminManager();
+//     $updateSignal = $commentSignal -> updateSignal($signal);
+//     require('index.php?action=post&id='.$id_Chapters);
+// }
+// SUBSCRIBEVIEW
 function subView(){
-    require('frontend/SubscribeView.php');
+    require('views/frontend/SubscribeView.php');
 }
-
+// GET USER TO DB & HOMEVIEW
 function newUser($username, $pass, $mail)
 {
     $userManager = new UserManager();
@@ -57,12 +61,13 @@ function connected($username,$pass){
     $keepIt = $userManager-> userConnex($username,$pass);
     require('index.php');
 }
+//USER CONTROLS BEFORE DB & NEWUSER
 function sameUser(){
     $userManager = new UserManager();
     $resultat = $userManager -> verifyUser();
     if($resultat == 0){
         if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\da-zA-Z]{8,16}$/", $_POST['pass'])){
-            if(preg_match("/[a-zA-Z0-9]{3,25}/",$_POST['username'])){           
+            if(preg_match("#^\w{3,25}$#",$_POST['username'])){           
             newUser($_POST['username'], $_POST['pass'], $_POST['mail']);
             }   
             else{
@@ -77,3 +82,4 @@ function sameUser(){
         throw new Exception('ce pseudo existe déjà');
     }
 }
+

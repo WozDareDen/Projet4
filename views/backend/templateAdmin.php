@@ -1,15 +1,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
 <head>
-	<title>Interface d'Edition</title>
+	<title><?= $title ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="test TinyMCE"/>
-	<link rel="stylesheet" href="../public/css/move2.css" />
-	<script type="text/javascript" src="tiny_mce/tiny_mce.js"></script>
+	<link rel="stylesheet" href="public/css/move2.css" />
+	<script type="text/javascript" src="views/backend/tiny_mce/tiny_mce.js"></script>
 	<script type="text/javascript">
 		tinyMCE.init({
 			// type de mode
 			mode : "exact", 
+			//language : "fr_FR",
 			// id ou class, des textareas
 			elements : "texte,texte2", 
 			// en mode avancé, cela permet de choisir les plugins
@@ -59,7 +60,7 @@
 </head>
 <body>
         <?= $content ?>
-        <script src="../public/js/jquery-3.3.1.js"></script> 
-        <script src="../public/js/script.js"></script> 
+        <script src="public/js/jquery-3.3.1.js"></script> 
+        <script src="public/js/script.js"></script> 
 </body>
 </html>

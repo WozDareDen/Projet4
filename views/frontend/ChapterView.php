@@ -19,16 +19,7 @@
                 </div>
                 <div class="comments" id="comments">
                         <h2>Commentaires</h2>
-<!--commentsLoops-->
-<?php
-while ($comment = $comments->fetch())
-{
-?>
-                        <p id="comments-<?= $comment->id ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?></p>
-                        <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
-<?php
-}
-?>
+
                         <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
                                 <p>Postez votre commentaire :</p>
                                 <div>
@@ -47,7 +38,19 @@ while ($comment = $comments->fetch())
                                 <div>
                                 <input type="submit" />
                                 </div>
-                        </form>
+                        </form></br>
+<!--commentsLoops-->
+<?php
+while ($comment = $comments->fetch())
+{
+?>
+                        
+                        <p id="comments-<?= $comment->id ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="#"> signalez !</a></span></p>
+                        <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
+<?php
+}
+?>
+                        
                 </div>
                 <div>
                         <p><a href="index.php#slide1">Revenir à la page d'accueil</a></p>
