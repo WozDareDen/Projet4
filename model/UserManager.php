@@ -23,38 +23,13 @@ public function verifyUser(){
     return $userAlreadyExist;
 }
 
-
-
-
-
-
-
-public function userConnex($username,$pass){
+public function userConnex(){
 //  Récupération de l'utilisateur et de son pass hashé
     $db = $this -> dbConnect(); 
-    $req = $db->prepare('SELECT username, pass FROM users WHERE username = ?');
-    $req->execute(array($username));
-    $resultat = $req->fetch();
+    $req = $db->prepare('SELECT * FROM users WHERE username = ?');
+    $req->execute(array($_POST['username']));
 
-    // Comparaison du pass envoyé via le formulaire avec la base
-    $isPasswordCorrect = password_verify($_POST['pass'], $resultat['pass']);
-
-    if (!$resultat){
-        echo 'Mauvais identifiant ou mot de passe !';
+    return $req;
     }
-    else{
-        if ($isPasswordCorrect) {
-            session_start();
-            $_SESSION['id'] = $resultat['id'];
-            $_SESSION['username'] = $username;
-            echo 'Vous êtes connecté !';
-        }
-        else {
-            echo 'Mauvais identifiant ou mot de passe !';
-        }
-    }
-    }
-
-
 
 }

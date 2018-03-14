@@ -26,10 +26,10 @@ function setAllChapters()
 }
 
 // GET COMMENTS TO DB & CHAPTERVIEW
-function addComment($id_Chapters, $id_Users, $comment_text, $signal)
+function addComment($id_Chapters, $id_Users, $comment_text)
 {
     $commentManager = new CommentManager();
-    $comments = $commentManager -> postChapterComment($id_Chapters, $id_Users, $comment_text, $signal);
+    $comments = $commentManager -> postChapterComment($id_Chapters, $id_Users, $comment_text);
     if ($comments === false) {
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
@@ -55,12 +55,35 @@ function newUser($username, $pass, $mail)
     $connex = $userManager -> addUser($username, $pass, $mail);
     header('Location: index.php');
 }
+//LOGIN FUNCTION
+function connected(){
 
-function connected($username,$pass){
+    $username = $_POST['username'];
+    $pass = $_POST['pass'];
     $userManager = new UserManager();
-    $keepIt = $userManager-> userConnex($username,$pass);
-    require('index.php');
+    $req = $userManager -> userConnex();
+    $resultat = $req->fetch();
+    $isPasswordCorrect = password_verify($_POST['pass'],$resultat['pass']);
+        if($isPasswordCorrect){
+            $_SESSION['username'] =  $resultat['username'];
+            $_SESSION['id'] =  $resultat['id'];
+            header('Location: index.php');
+        }
+        else{
+            throw new Exception('vos identifiants sont incorrects');
+        }
+
+}    
+//LOGOUT FUNCTION
+function disconnected(){
+    $_SESSION = array();
+    session_destroy();
+    header('Location: index.php');
 }
+
+
+
+
 //USER CONTROLS BEFORE DB & NEWUSER
 function sameUser(){
     $userManager = new UserManager();

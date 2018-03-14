@@ -19,12 +19,11 @@
                 </div>
                 <div class="comments" id="comments">
                         <h2>Commentaires</h2>
-
+                        <a href="index.php?action=deco">logout</a>
                         <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
-                                <p>Postez votre commentaire :</p>
-                                <div>
-                                <label for="comment">ID users</label><br />
-                                <textarea id="comment" name="id_Users">1</textarea>
+                                <div hidden>
+                                <label for="comment">ID_users</label><br />
+                                <textarea id="comment" name="id_Users"><?=$_SESSION['id'] ?></textarea>
                                 </div>
                                 <div hidden>
                                 <label for="comment">ID chapters</label><br />
@@ -32,7 +31,7 @@
                                 </div>
 
                                 <div>
-                                <label for="comment">Commentaire</label><br />
+                                <label for="comment">Postez votre commentaire :</label><br />
                                 <textarea id="comment" name="comment_text"></textarea>
                                 </div>
                                 <div>

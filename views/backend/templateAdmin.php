@@ -5,6 +5,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="test TinyMCE"/>
 	<link rel="stylesheet" href="public/css/move2.css" />
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 	<script type="text/javascript" src="views/backend/tiny_mce/tiny_mce.js"></script>
 	<script type="text/javascript">
 		tinyMCE.init({

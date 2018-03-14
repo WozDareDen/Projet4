@@ -25,3 +25,8 @@ function pushChapter($title, $chapter_number,$chapter_img, $chapter_text){
     $postChapter = $adminManager -> postChapter($title, $chapter_number,$chapter_img, $chapter_text);
     header('Location: admin.php?action=pannel');
 }
+function theEraser(){
+    $adminManager = new AdminManager();
+    $deleteChapter = $adminManager -> deleteChapter();
+    header('Location: admin.php?action=pannel');
+}

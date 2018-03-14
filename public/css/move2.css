@@ -99,3 +99,21 @@ dt{
 .signal{
     font-style: italic;
 }
+li{
+    list-style-type: none;
+}
+.list{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+
+}
+.commentsPannel{
+    text-align:center;
+}
+.colorRed{
+    color: #a11035;
+}
+.colorTeal{
+    color: #008080;
+}

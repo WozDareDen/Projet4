@@ -1,8 +1,15 @@
-
 <?php
+session_start();
 require('controller/backOffice.php');
 try{
-    if (isset($_GET['action'])) {
+    if(isset($_GET['action']) && isset($_GET['idChapter'])){
+        if($_GET['action'] == 'delete'){
+            theEraser();
+        }
+    }
+
+    elseif (isset($_GET['action'])) {
+       
         if($_GET['action'] == 'admin'){
             if(isset($_GET['admin']) && isset($_GET['pass'])){
                 goGetLost();
@@ -30,6 +37,7 @@ try{
         elseif($_GET['action'] == 'pannel'){
             goToPannel();
         }
+       
         else{
             echo 'banane';
         }

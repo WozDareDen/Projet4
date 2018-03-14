@@ -1,5 +1,6 @@
 <?php
-// session_start();
+session_start();
+
 //Routeur require Controller 
 require('controller/frontOffice.php');
 
@@ -49,28 +50,19 @@ try{
                 throw new Exception('votre pseudo dépasse les 25 caractères');
             }
         }
-        
-       
-        // elseif($_GET['action'] == 'signal'){   
-        //     addSignal();
-           
-        // }
-        // elseif ($_GET['action'] == 'record'){
-        //     if(isset($_POST['username']) && isset($_POST['pass'])){
-        //         if($_GET['username'] == $_POST['username'] && $_GET['pass'] == $_POST['pass']){
-        //             $_SESSION['username'] = $_POST['username'];
-        //             $_SESSION['pass'] = $_POST['pass'];
-        //             connected();
-        //         }
-        //         else{
-        //             throw new Exception('vos identifiants sont incorrects');
-        //         }
-        //     }
-        //     else{
-        //         throw new Exception('veuillez renseigner tous les champs');
-        //     }            
-        // }
-    }   
+        elseif($_GET['action'] == 'deco'){
+            disconnected();
+        }
+        elseif ($_GET['action'] == 'record'){
+            if(isset($_POST['username']) && isset($_POST['pass'])){
+                    connected();
+            }
+            else{
+                    throw new Exception('veuillez renseignez vos identifiants');
+            }    
+        }        
+
+    }
     else {
         setAllChapters();
     }
