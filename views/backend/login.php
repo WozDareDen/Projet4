@@ -3,11 +3,10 @@
     <div class="main">
         <h1>Connexion</h1>
         <form class="entree commentsEdition" action="admin.php?action=pannel" method="post">
-        <input type="text" placeholder="entrez votre identifiant" name="login" id="admin" />
-        <input type="password" placeholder="entrez votre mot de passe" name="pass" id="pass" /></br>
+        <input type="text" placeholder="entrez votre identifiant" name="login" id="admin" required="valid"/>
+        <input type="password" placeholder="entrez votre mot de passe" name="pass" id="pass" required="valid"/></br>
         <input type="submit" value="valider" />
         </form>
-        <div><a href="views/backend/pannel.php">TEST</a></div>
     </div>
     <?php ob_start(); ?>	
 

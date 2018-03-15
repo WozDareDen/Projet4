@@ -8,6 +8,9 @@
 <p class="sortie">En acceptant ces règles, vous vous engagez à n'écrire aucun message à caractère obscène, vulgaire, discriminatoire, menaçant, diffamatoire, injurieux ou contraire aux lois et règlements en vigueur.</p>
 
 <p class="sortie">Vous autorisez l'Administrateur du site à supprimer, modifier, déplacer ou fermer n'importe quel message pour n'importe quelle raison et sans autorisation préalable de votre part.</p>
+
+<p class="sortie"><span class="taille">Quelques consignes pour valider l'inscription !</span> Votre pseudo doit être composé entre 3 et 20 caractères alphanumériques et votre mot de passe doit être composé entre 8 et 16 caractères alphanumériques comprenant au minimum 1 majuscule, 1 minuscule et 1 chiffre.</p>
+
 <p class="sortie">Ce site est excusivement à vocation pédagogique et s'inscrit dans le cadre du parcours OpenClassRooms Développeur Web Junior.</p>
 <div class="sub">
                         <form action="index.php?action=addUser" method="post">

@@ -2,15 +2,14 @@
 <?php ob_start(); ?>	
     <div class="main">
         <h1>Interface d'Edition</h1>
-        <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=update" method="post">
-            <input hidden type="number" name="idChapter" value="<?=$_GET['idChapter'] ?>"
+        <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=write" method="post">
             <label  for="title">Titre du Chapitre</label>
-            <input type="text" id="title" name="title" value="<?=($post['title']) ?>" /></br>
+            <input type="text" id="title" name="title" /></br>
             <label  for="chapter_number" >Numéro du Chapitre</label>
-            <input type="number" id="chapter_number" name="chapter_number" value="<?=($post['chapter_number']) ?>" /></br>
+            <input type="number" id="chapter_number" name="chapter_number" /></br>
             <label  for="chapter_img">Photo du Chapitre</label>
             <input type="file" id="chapter_img" name="chapter_img" />
-            <textarea id="texte" name="chapter_text" rows="30" ><?=($post['chapter_text']) ?></textarea>
+            <textarea id="texte" name="chapter_text" rows="30" ></textarea>
         </form>
         <div id="advice" class="entree commentsEdition">
             <h2>Quelques conseils pratiques</h2>

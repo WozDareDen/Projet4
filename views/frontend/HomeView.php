@@ -7,8 +7,8 @@
     <div class="title2">
     <p>Bienvenue sur le blog de l'acteur et écrivain <span class="JF">Jean Forteroche</span>. Il travaille actuellement sur son prochain roman. Dans la grande tradition des romans-feuilleton du XIXème siècle et à l'instar du maître du fantastique Stephen King avec La Ligne Verte, il souhaite publier sa dernière oeuvre par épisodes. Il se positionne en feuilletoniste du XXIème siècle et souhaite, à travers les possibilité offertes par le web dont découlent les nouveaux usages de lecture, se rapprocher de ses lecteurs, rompant ainsi la distance d'un auteur avec son public. 
     </p>
-  </div>
-  <div id="identify">
+    </div>
+    <div id="identify">
     <button class="identifyB">s'identifier</button>
       <div class="register">
       <div class="close">X</div>
@@ -25,12 +25,11 @@
         <input id="submit" type="submit" value="GO !">
         </div>
         <div class="compte">Pas encore inscrit ? <span class="compteLien"><a href="index.php?action=subView">Créez un compte !</a></span>
-      </div>                      
+        </div>                      
       </form>
       </div>
-    </div>
-  </div>
-
+</div>
+</div>
 <div id="slide1" class="slide">
   <div class="title">
 <!--Chapters Titles List (getChapterTitlesList)-->   

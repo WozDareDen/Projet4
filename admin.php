@@ -6,8 +6,10 @@ try{
         if($_GET['action'] == 'delete'){
             theEraser();
         }
+        if($_GET['action'] == 'edit'){
+            theEditor();
+        }
     }
-
     elseif (isset($_GET['action'])) {
        
         if($_GET['action'] == 'admin'){
@@ -34,8 +36,27 @@ try{
                 throw new Exception('Tous les champs ne sont pas remplis');
             }
         }
+        elseif($_GET['action'] == 'update'){
+            if(!empty($_POST['title']) && !empty($_POST['chapter_number']) && !empty($_POST['chapter_img']) && !empty($_POST['chapter_text'])){
+                if($_POST['chapter_number'] > 0){
+                    updateChapter($_POST['title'],$_POST['chapter_number'],$_POST['chapter_img'],$_POST['chapter_text'],$_POST['idChapter']);
+                }
+                else{
+                    throw new Exception('Le numéro de chapitre doit être positif');
+                }
+            }
+            else{
+                throw new Exception('Tous les champs ne sont pas remplis');
+            }
+        }
         elseif($_GET['action'] == 'pannel'){
-            goToPannel();
+            if(isset($_POST['login']) && isset($_POST['pass'])){
+                goToPannel();
+        }
+            else{
+                throw new Exception('veuillez renseignez vos identifiants');
+            }    
+            
         }
        
         else{
@@ -50,7 +71,7 @@ try{
     }
 
 catch(Exception $e){
-    require('../frontend/error.php');
+    require('views/backend/error.php');
 }
 
 

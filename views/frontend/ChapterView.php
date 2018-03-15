@@ -3,6 +3,7 @@
 <?php ob_start(); ?>
 <!--getChapterTitle--> 
         <div class="main">
+        
                 <div class="entree">
                         <h1 id="chapterName"><?= htmlspecialchars($post['title']) ?></h1>
 
@@ -19,7 +20,8 @@
                 </div>
                 <div class="comments" id="comments">
                         <h2>Commentaires</h2>
-                        <a href="index.php?action=deco">logout</a>
+                        <div class="deco"><a href="index.php?action=deco">logout</a></div>
+                        
                         <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
                                 <div hidden>
                                 <label for="comment">ID_users</label><br />

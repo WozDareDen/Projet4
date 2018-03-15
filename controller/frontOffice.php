@@ -57,7 +57,6 @@ function newUser($username, $pass, $mail)
 }
 //LOGIN FUNCTION
 function connected(){
-
     $username = $_POST['username'];
     $pass = $_POST['pass'];
     $userManager = new UserManager();

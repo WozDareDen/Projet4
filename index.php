@@ -33,7 +33,7 @@ try{
         }
 
         elseif ($_GET['action'] == 'addUser'){
-            if(strlen(htmlspecialchars($_POST['username'])) <= 25 ){
+            if(strlen(htmlspecialchars($_POST['username'])) <= 20 ){
                 if(htmlspecialchars($_POST['pass']) == htmlspecialchars($_POST['pass2'])){
                     if(filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){                        
                         sameUser();                        
