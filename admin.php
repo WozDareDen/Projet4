@@ -10,14 +10,19 @@ try{
             theEditor();
         }
     }
+    elseif(isset($_GET['action']) && isset($_GET['idComment'])){
+        if($_GET['action'] == 'deleteCom'){
+            forgetCom();
+        }
+        elseif($_GET['action'] == 'approval'){
+            validCom();
+        }
+    }
     elseif (isset($_GET['action'])) {
        
         if($_GET['action'] == 'admin'){
             if(isset($_GET['admin']) && isset($_GET['pass'])){
                 goGetLost();
-            }
-            else{
-                echo 'shit';
             }
         }
         elseif($_GET['action'] == 'edition'){
@@ -50,10 +55,12 @@ try{
             }
         }
         elseif($_GET['action'] == 'pannel'){
-            if(isset($_POST['login']) && isset($_POST['pass'])){
+            if((isset($_POST['login']) && isset($_POST['pass'])) || (isset($_SESSION['username']) )){
+                
                 goToPannel();
         }
             else{
+               
                 throw new Exception('veuillez renseignez vos identifiants');
             }    
             

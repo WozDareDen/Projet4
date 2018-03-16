@@ -20,7 +20,6 @@
                 </div>
                 <div class="comments" id="comments">
                         <h2>Commentaires</h2>
-                        <div class="deco"><a href="index.php?action=deco">logout</a></div>
                         
                         <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
                                 <div hidden>
@@ -42,13 +41,19 @@
                         </form></br>
 <!--commentsLoops-->
 <?php
-while ($comment = $comments->fetch())
-{
+
+
+if(count($comments) === 0){
+        echo "il n'y a pas de commentaire";
+}
+else{
+        while ($comment = $comments->fetch()){
 ?>
                         
-                        <p id="comments-<?= $comment->id ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="#"> signalez !</a></span></p>
+                        <p id="comments-<?= $comment['id'] ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="index.php?action=signal&id=<?= $comment['id'] ?>&idChapter=<?= $post['id'] ?>"> signalez !</a></span></p>
                         <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
 <?php
+}
 }
 ?>
                         

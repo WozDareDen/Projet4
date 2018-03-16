@@ -15,6 +15,10 @@ try{
                 throw new Exception('aucun identifiant de billet envoyé');
             }
         }
+        elseif($_GET['action'] == 'signal'){
+            // int>0
+            addSignal($_GET['id'],$_GET['idChapter']);
+        }
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['id_Users']) && !empty($_POST['comment_text'])) {

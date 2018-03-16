@@ -34,16 +34,16 @@ function addComment($id_Chapters, $id_Users, $comment_text)
         throw new Exception('Impossible d\'ajouter le commentaire !');
     }
     else {
-        header('Location: index.php?action=post&id=' . $id_Chapters);
+        header('Location: index.php?action=post&id=' . $id_Chapters . '#comments');
     }
 }    
 // GET SIGNAL TO DB & CHAPTERVIEW
-// function addSignal(){
-//     $signal = $_GET['signal'] + 1;
-//     $commentSignal = new AdminManager();
-//     $updateSignal = $commentSignal -> updateSignal($signal);
-//     require('index.php?action=post&id='.$id_Chapters);
-// }
+function addSignal($commentId,$chapterId){
+    $commentSignal = new AdminManager();
+    $updateSignal = $commentSignal -> updateSignal($commentId);
+
+    header('Location:index.php?action=post&id='.$chapterId.'#comments');
+}
 // SUBSCRIBEVIEW
 function subView(){
     require('views/frontend/SubscribeView.php');
@@ -71,7 +71,6 @@ function connected(){
         else{
             throw new Exception('vos identifiants sont incorrects');
         }
-
 }    
 //LOGOUT FUNCTION
 function disconnected(){
@@ -79,10 +78,6 @@ function disconnected(){
     session_destroy();
     header('Location: index.php');
 }
-
-
-
-
 //USER CONTROLS BEFORE DB & NEWUSER
 function sameUser(){
     $userManager = new UserManager();

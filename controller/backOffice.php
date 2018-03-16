@@ -1,23 +1,24 @@
 <?php
 
 //Calling Models :
-require_once('model/ChapterManager.php');
-require_once('model/CommentManager.php');
-require_once('model/UserManager.php');
-require_once('model/AdminManager.php');
+require('model/ChapterManager.php');
+require('model/CommentManager.php');
+require('model/UserManager.php');
+require('model/AdminManager.php');
 
 // GO TO EDITION
 function goToEdition(){
     require('views/backend/creation.php');
 }
-// GO TO PANNEL
+// GO TO PANNEL from Login or already login
 function goToPannel(){
+    if(isset($_POST['login']) && isset($_POST['pass'])){
     $login = $_POST['login'];
     $pass = $_POST['pass'];
     $userManager = new AdminManager();
     $req = $userManager -> adminControl();
     $resultat = $req->fetch();
-    $isPasswordCorrect = password_verify($_POST['pass'],$resultat['pass']);
+    $isPasswordCorrect = password_verify($pass,$resultat['pass']);
         if($isPasswordCorrect){
             $_SESSION['username'] =  $resultat['username'];
             $_SESSION['id'] =  $resultat['id'];
@@ -25,8 +26,11 @@ function goToPannel(){
         else{
             throw new Exception('vos identifiants sont incorrects');
         }  
+    }   
     $chapterManager = new ChapterManager();
     $postAll = $chapterManager ->getAllChapters();
+    $commentManager = new CommentManager();
+    $comAll = $commentManager ->printComment();
     require('views/backend/pannel.php');
 }
 function goGetLost(){
@@ -53,4 +57,14 @@ function theEditor(){
     $adminManager = new AdminManager();
     $post = $adminManager -> editChapter();
     require('views/backend/edition.php');
+}
+function forgetCom(){
+    $adminManager = new AdminManager();
+    $deleteSingleComment = $adminManager -> deleteSingleComment();
+    header('Location: admin.php?action=pannel');
+}
+function validCom(){
+    $adminManager = new AdminManager();
+    $validComment = $adminManager->validComment();
+    header('Location: admin.php?action=pannel');
 }

@@ -57,35 +57,33 @@ public function deleteComment(){
     return $deleteComment;
 }
 
+public function deleteSingleComment(){
+    $db = $this -> dbConnect();
+    $deleteSingleComment = $db->prepare('DELETE FROM comments WHERE id = ?');
+    $deleteSingleComment -> execute(array($_GET['idComment']));
+    return $deleteSingleComment;
+}
+public function validComment(){
+    $db = $this -> dbConnect();
+    $validComment = $db->prepare('UPDATE comments SET sig = 0 WHERE id = ?');
+    $validComment -> execute(array($_GET['idComment']));
+    return $validComment;
+}
+
 public function adminControl(){
     //  Récupération de l'utilisateur et de son pass hashé
         $db = $this -> dbConnect(); 
         $req = $db->prepare('SELECT * FROM users WHERE v = ?');
-        $req->execute(array(1));
-    
+        $req->execute(array(1));    
         return $req;
         }
 
 
-//GET SIGNAL INTO DB
-// public function getSignal(){
-//     $db = $this -> dbConnect();
-//     $signal = $db->prepare('UPDATE comments SET signal = +1 WHERE signal = ?');
-//     $signal -> execute(array($_GET['signal']));
-//     return $signal;
-// }
-
-
-
-
-
-
-
 // UPDATE SIGNAL INTO DB
-// public function updateSignal($signal){
-//     $db = $this -> dbConnect();
-//     $updateSignal = $db->prepare('UPDATE comments SET signal WHERE id= id_chapters');
-//     $updateSignal->execute(array($signal));
-//     return $updateSignal;
-// }
+public function updateSignal($signal){
+    $db = $this -> dbConnect();
+    $updateSignal = $db->prepare('UPDATE comments SET sig = (sig+1) WHERE id= ?');
+    $updateSignal->execute(array($signal));
+    return $updateSignal;
+}
 }

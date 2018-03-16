@@ -9,7 +9,11 @@
 
     </head>        
     <body>
+
     <div id="identify">
+    <?php
+    if(empty($_SESSION['username'])){
+        ?>
     <button class="identifyB">s'identifier</button>
       <div class="register">
       <div class="close">X</div>
@@ -29,6 +33,13 @@
         </div>                      
       </form>
       </div>
+      <?php
+    } 
+    else{
+        ?><a href="index.php?action=deco"><button class="identifyB">Déconnexion</button></a>
+    <?php 
+    }
+    ?>
 </div>
         <?= $content ?>
 
