@@ -4,8 +4,6 @@ require_once('model/ChapterManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
 require_once('model/AdminManager.php');
-//Require Views :
-
 // CHAPTER VIEW 
 function setChapter($id)
 {
@@ -41,7 +39,6 @@ function addComment($id_Chapters, $id_Users, $comment_text)
 function addSignal($commentId,$chapterId){
     $commentSignal = new AdminManager();
     $updateSignal = $commentSignal -> updateSignal($commentId);
-
     header('Location:index.php?action=post&id='.$chapterId.'#comments');
 }
 // SUBSCRIBEVIEW
@@ -99,4 +96,3 @@ function sameUser(){
         throw new Exception('ce pseudo existe déjà');
     }
 }
-

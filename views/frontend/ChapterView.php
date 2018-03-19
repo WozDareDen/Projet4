@@ -1,18 +1,13 @@
 <?php $title = ($post['title']) ?>
-
 <?php ob_start(); ?>
 <!--getChapterTitle--> 
-        <div class="main">
-        
+        <div class="main">        
                 <div class="entree">
                         <h1 id="chapterName"><?= htmlspecialchars($post['title']) ?></h1>
-
 <!--getChapterImg--> 
                         <img src="<?= $post['chapter_img'] ?>" alt="illustration du chapitre" title="photo n&b" />
-
 <!--getChapterDate-->                
-                        <p class="edition">Posté le <?= $post['chapter_date_fr'] ?> <a href="#comments">Commentaires</a></p>
-                        
+                        <p class="edition">Posté le <?= $post['chapter_date_fr'] ?> <a href="#comments">Commentaires</a></p>                        
                 </div>
 <!--getChapterText-->    
                 <div class="sortie">
@@ -41,22 +36,13 @@
                         </form></br>
 <!--commentsLoops-->
 <?php
-
-
-if(count($comments) === 0){
-        echo "il n'y a pas de commentaire";
-}
-else{
-        while ($comment = $comments->fetch()){
-?>
-                        
+        while ($comment = $comments->fetch()){   
+?>                       
                         <p id="comments-<?= $comment['id'] ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="index.php?action=signal&id=<?= $comment['id'] ?>&idChapter=<?= $post['id'] ?>"> signalez !</a></span></p>
                         <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
 <?php
 }
-}
-?>
-                        
+?>                       
                 </div>
                 <div>
                         <p><a href="index.php#slide1">Revenir à la page d'accueil</a></p>

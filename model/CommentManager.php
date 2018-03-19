@@ -1,11 +1,10 @@
 <?php
 //Calling Manager
 require_once('model/Manager.php');
- 
 //CommentsObject :
 class CommentManager extends Manager
 {
-//getChapterComments(chapter_id) 
+//COMMENTS FROM CHAPTER
 public function getChapterComments($id_Chapters)
 {
     $db = $this -> dbConnect();
@@ -13,7 +12,7 @@ public function getChapterComments($id_Chapters)
     $comments->execute(array($id_Chapters));
     return $comments;
 }
-//PostChapterComment
+//POST COMMENTS
 public function postChapterComment($id_Chapters, $id_Users, $comment_text)
 {
     $db = $this -> dbConnect();
@@ -21,10 +20,10 @@ public function postChapterComment($id_Chapters, $id_Users, $comment_text)
     $affectedLines = $comments->execute(array($id_Chapters, $id_Users, $comment_text));
     return $affectedLines;
 }
+//POST SIGNAL COMMENTS IN DASHBOARD
 public function printComment(){
     $db = $this -> dbConnect();
     $comAll = $db->query('SELECT id, id_Chapters, sig, comment_text, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_short FROM comments WHERE sig >1 ORDER BY sig DESC');
-    // $comAll->execute(array($id));
     return $comAll;
 }
 }

@@ -11,6 +11,7 @@
             <label  for="chapter_img">Photo du Chapitre</label>
             <input type="file" id="chapter_img" name="chapter_img" />
             <textarea id="texte" name="chapter_text" rows="30" ><?=($post['chapter_text']) ?></textarea>
+            <input type="submit" value="publier" />
         </form>
         <div id="advice" class="entree commentsEdition">
             <h2>Quelques conseils pratiques</h2>
@@ -25,11 +26,9 @@
         </div>
         <div>
             <p><a href="index.php">Accéder au site</a></p>
-            <p><a href="admin.php?action=pannel">Accéder au Tableau de Bord</a></p>
-         </div>
+            <p><a href="admin.php?action=dashboard">Accéder au Tableau de Bord</a></p>
+        </div>
     </div>
-
-
-    <?php $content = ob_get_clean(); ?>
+<?php $content = ob_get_clean(); ?>
 <!--template.php-->
 <?php require('views/backend/templateAdmin.php'); ?>

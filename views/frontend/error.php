@@ -9,7 +9,6 @@
         <p><a href="index.php">Revenir à la page d'Accueil</a></p>
     </div>
     </div>
-
 <?php $content = ob_get_clean(); ?>
 <!--template.php-->
 <?php require('template2.php'); ?>     

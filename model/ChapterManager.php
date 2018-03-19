@@ -5,16 +5,16 @@ require_once('model/Manager.php');
 //ChapterObject : 
 class ChapterManager extends Manager
 {
-//getChapter 
+//SINGLE CHAPTER DATA 
 public function getChapter($id)
 {
     $db = $this -> dbConnect();
     $req = $db->prepare('SELECT id, title, chapter_number, chapter_img, chapter_text, DATE_FORMAT(chapter_date, \'%d/%m/%Y à %Hh%imin\') AS chapter_date_fr FROM chapters WHERE id = ?');
     $req->execute(array($id));
     $post = $req->fetch();
-
     return $post;
 }
+// ALL CHAPTERS DATA
 public function getAllChapters()
 {
     $db = $this -> dbConnect();
@@ -22,13 +22,11 @@ public function getAllChapters()
 
     return $postAll;
 }
+// LAST CHAPTER DATA
 public function getLastChapter()
 {
     $db = $this -> dbConnect();
-    $lastPost = $db->query('SELECT id,title, chapter_number, chapter_img, chapter_text FROM chapters WHERE chapter_number IN (select MAX(chapter_number) FROM chapters)' );
-    
+    $lastPost = $db->query('SELECT id,title, chapter_number, chapter_img, chapter_text FROM chapters WHERE chapter_number IN (select MAX(chapter_number) FROM chapters)' );  
     return $lastPost;
 }
-
-
 }

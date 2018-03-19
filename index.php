@@ -1,9 +1,7 @@
 <?php
 session_start();
-
 //Routeur require Controller 
 require('controller/frontOffice.php');
-
 // //gestion des erreurs
 try{
     if (isset($_GET['action'])) {
@@ -29,7 +27,7 @@ try{
                 }
             }
             else {
-                throw new Exception('aucun identifiant de billet envoyé');
+                throw new Exception('vous devez être connecté');
             }
         }
         elseif ($_GET['action'] == 'subView'){
@@ -65,7 +63,6 @@ try{
                     throw new Exception('veuillez renseignez vos identifiants');
             }    
         }        
-
     }
     else {
         setAllChapters();

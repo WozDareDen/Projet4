@@ -1,20 +1,18 @@
 <?php
 //Calling Manager
 require_once('model/Manager.php');
- 
 //CommentsObject :
 class UserManager extends Manager
 {
-// Vérification de la validité des informations
-
-public function addUser($username, $pass, $mail){
+// ADD NEW USER
+    public function addUser($username, $pass, $mail){
     $pass_hache = password_hash($_POST['pass'], PASSWORD_DEFAULT);
     $db = $this -> dbConnect(); 
     $connex = $db->prepare('INSERT INTO users(username, pass, mail, registration_date) VALUES(?,?,?,CURDATE())');
     $connex->execute(array($username, $pass_hache, $mail));
     return $connex;
 }
-
+// SAME USERNAME CONTROL
 public function verifyUser(){
     $db = $this -> dbConnect();
     $reqUser = $db->prepare("SELECT username FROM users WHERE username = ?");
@@ -22,13 +20,11 @@ public function verifyUser(){
     $userAlreadyExist = $reqUser->rowCount();
     return $userAlreadyExist;
 }
-
+// USER CONNECTION
 public function userConnex(){
-//  Récupération de l'utilisateur et de son pass hashé
     $db = $this -> dbConnect(); 
     $req = $db->prepare('SELECT * FROM users WHERE username = ?');
     $req->execute(array($_POST['username']));
-
     return $req;
     }
 
