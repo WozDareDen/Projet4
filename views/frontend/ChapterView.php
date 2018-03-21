@@ -14,9 +14,17 @@
                         <p><?= $post['chapter_text'] ?></p>      
                 </div>
                 <div class="comments" id="comments">
-                        <h2>Commentaires</h2>
-                        
-                        <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
+                        <h2>Commentaires</h2>  
+<?php 
+if(empty($_SESSION['username'])){
+?>
+                <div><p>Vous devez être connecté pour poster un commentaire</p></div>      
+<!--commentsLoops-->
+<?php
+}
+else{
+?>
+                <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>" method="post">
                                 <div hidden>
                                 <label for="comment">ID_users</label><br />
                                 <textarea id="comment" name="id_Users"><?=$_SESSION['id'] ?></textarea>
@@ -25,7 +33,6 @@
                                 <label for="comment">ID chapters</label><br />
                                 <textarea id="comment" name="id_Chapters"><?= $_GET['id'] ?></textarea>
                                 </div>
-
                                 <div>
                                 <label for="comment">Postez votre commentaire :</label><br />
                                 <textarea id="comment" name="comment_text"></textarea>
@@ -34,10 +41,10 @@
                                 <input type="submit" />
                                 </div>
                         </form></br>
-<!--commentsLoops-->
-<?php
-        while ($comment = $comments->fetch()){   
-?>                       
+<?php    
+}   
+while ($comment = $comments->fetch()){   
+?>                   
                         <p id="comments-<?= $comment['id'] ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="index.php?action=signal&id=<?= $comment['id'] ?>&idChapter=<?= $post['id'] ?>"> signalez !</a></span></p>
                         <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
 <?php

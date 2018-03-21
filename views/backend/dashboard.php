@@ -27,7 +27,7 @@
 <?php            
  while($com = $comAll->fetch()){    
      ?>
-                <dt class="list">Chapitre : <?=$com['id_Chapters'] ?></dt>               
+                <dt class="list">Chapitre : <?=$com['chapter_number'] ?></dt>               
                     <dd><?= $com['comment_text'] ?>
                     </dd>
                     <dd>Posté le <?= $com['comment_date_short'] ?> et signalé <span class="fatRed"><?= $com['sig'] ?></span> fois.

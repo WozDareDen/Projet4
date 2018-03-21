@@ -14,7 +14,6 @@ try{
             }
         }
         elseif($_GET['action'] == 'signal'){
-            // int>0
             addSignal($_GET['id'],$_GET['idChapter']);
         }
         elseif ($_GET['action'] == 'addComment') {
@@ -33,7 +32,6 @@ try{
         elseif ($_GET['action'] == 'subView'){
             subView();            
         }
-
         elseif ($_GET['action'] == 'addUser'){
             if(strlen(htmlspecialchars($_POST['username'])) <= 20 ){
                 if(htmlspecialchars($_POST['pass']) == htmlspecialchars($_POST['pass2'])){

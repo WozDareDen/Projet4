@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url(http://fonts.googleapis.com/css?family=Roboto:100,300,400,400italic,700);
-/***************CHAPTER VIEW**********************/
+/************************************************/
+/********************GENERAL*********************/
+/************************************************/
 body{
     font-size: 16px;
     margin:0;
@@ -9,6 +11,35 @@ body{
 a{
     text-decoration: none;
 }
+h1{
+    text-align: center;
+    font-size: 1.7rem;
+    font-family: 'Brush script MT';
+}
+h2{
+    text-align: center;
+}
+img{
+    width: 310px;
+    height: 240px;
+    transform: translateZ(.25px) scale(.75) rotate(2deg);
+    padding: 10px;
+    border-radius: 5px;
+    background: rgba(240,230,220, .7);
+    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+ul{
+    padding-left:0;
+}
+li{
+    list-style-type: none;
+}
+dt{
+    font-size: 1.3rem;
+}
+/************************************************/
+/********************CORE************************/
+/************************************************/
 .main{
     display: flex;
     flex-direction: column;
@@ -22,50 +53,31 @@ a{
 .entree{
     align-self: center;
 }
-h1{
-    text-align: center;
-    font-size: 100px;
-    font-family: 'Brush script MT';
-}
-h2{
-    text-align: center;
-}
 .sortie{
-    width:60%;
+    width:90%;
     text-align: justify;
     align-self: center;
     font-family: 'Nunito';
 }
-img{
-    width: 620px;
-    height: 480px;
-    transform: translateZ(.25px) scale(.75) rotate(2deg);
-    padding: 10px;
-    border-radius: 5px;
-    background: rgba(240,230,220, .7);
-    box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+
+.comments{
+    margin: 5% 0 5% 10%;
 }
 .comments, .sub{
     border: 1px solid black;
     padding: 10px;
-    max-width:40%;
+    max-width:80%;
     border-radius: 5px;
     background: rgba(240,230,220, .7);
     box-shadow: 0 0 8px rgba(0, 0, 0, .7);
 }
-.sortie p{
-    font-size: 20px;
-}
-.comments{
-    margin: 5% 0 5% 10%;
+.sub{
+    margin:auto;
+    font-family: 'roboto';
 }
 .taille{
     font-size: 20px;
     font-weight: bold;
-}
-.sub{
-    margin:auto;
-    font-family: 'roboto';
 }
 .italic{
     font-style: italic;
@@ -74,17 +86,23 @@ img{
     color: rgb(160, 32, 143);
 }
 #username, #pass, #pass2, #mail{
-    width:60%;
+    width:100%;
 }
 #newOne{
     color: red;
     font-size: 2rem;
 }
-/* EDITION DESIGN */
+/************************************************/
+/****************EDITION DESIGN******************/
+/************************************************/
+.edition{
+    font-size: 12px;
+    margin-left:15%;
+}
 .commentsEdition{
     border: 1px solid black;
     padding: 10px;
-    max-width:80%;
+    max-width:100%;
     border-radius: 5px;
     background: rgba(240,230,220, .7);
     box-shadow: 0 0 8px rgba(0, 0, 0, .7);
@@ -93,23 +111,16 @@ img{
     font-weight: bold;
     color: red;
 }
-dt{
-    font-size: 1.3rem;
-}
 .signal{
     font-style: italic;
-}
-li{
-    list-style-type: none;
 }
 .list{
     display: flex;
     justify-content: space-between;
-    font-size: 1.3rem;
-
+    font-size: 0.8rem;
 }
 .commentsPannel{
-    text-align:center;
+    text-align:left;
 }
 .colorRed{
     color: #a11035;
@@ -117,8 +128,14 @@ li{
 .colorTeal{
     color: #008080;
 }
-
-
+/* .upper{
+    position: absolute;
+    top:70px;
+    left:7%;
+} */
+/************************************************/
+/***************REGISTRATION BOX*****************/
+/************************************************/
 #identify{
     z-index: 100000;
     position: absolute;
@@ -143,8 +160,7 @@ li{
     border: 1px solid black;
     background: rgba(240,230,220, .7);
     box-shadow: 0 0 12px rgba(0, 0, 0, .7);
-  }
-  
+  }  
   .compte{
     color:black;
     font-size:18px;
@@ -165,3 +181,59 @@ li{
   #pseudo, #motDePasse{
     width:60%;
   }
+/************************************************/
+/*****************RESPONSIVE*********************/
+/************************************************/
+@media screen and (min-width: 400px){
+    h1{
+        font-size: 2.5em;
+    }
+    .edition{
+        font-size: 16px;
+    }
+    .sortie p{
+        font-size: 20px;
+    }
+    #username, #pass, #pass2, #mail{
+        width:80%;
+    }
+    .list{
+        font-size: 0.9rem;
+    }
+}
+@media screen and (min-width: 768px){
+    h1{
+        font-size: 4em;
+    }
+    img{
+        width: 620px;
+        height: 480px;
+    }
+    .sortie{
+        width:60%;
+    }
+    .list{
+        font-size: 1.2rem;
+    }
+    .edition{
+        font-size: 18px;
+        margin-left:15%;
+    }
+    .comments{
+        max-width:60%;
+    }
+    #username, #pass, #pass2, #mail{
+        width:60%;
+    }
+}
+@media screen and (min-width: 992px){
+    h1{
+        font-size: 6em;
+    }
+    .comments{
+        max-width:40%;
+    }
+    #username, #pass, #pass2, #mail{
+        width:45%;
+    }
+}

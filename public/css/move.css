@@ -17,12 +17,17 @@ body {
 }
 
 h2 {
-   font-size: 250%
+   /* font-size: 250% */
+   font-size:150%;
 }
-
+h3{
+  /* font-size:32px; */
+  font-size:20px;
+}
 p {
-  font-size: 140%;
-  line-height: 150%;
+  /* font-size: 140%;
+  line-height: 150%; */
+  font-size: 100%;
   color: #333;
 }
 
@@ -59,7 +64,9 @@ a{
 img:last-of-type {
   transform: translateZ(.4px) scale(.6) translateX(-104%) translateY(-40%) rotate(-5deg);
 }
-
+#slide2 img, #slide3 img{
+  display: none;
+}
 .slide:before {
   content: "";
   position: absolute;
@@ -71,7 +78,8 @@ img:last-of-type {
 }
 
 .title {
-  width: 50%;
+  /* width: 50%; */
+  width: 90%;
   padding: 5%;
   border-radius: 5px;
   background: rgba(240,230,220, .7);
@@ -79,7 +87,8 @@ img:last-of-type {
 }
 .title2{
   margin-top: 100px;
-  width: 60%;
+  /* width: 60%; */
+  width: 90%;
   padding: 5%;
   border-radius: 5px;
   background: rgba(240,230,220, .7);
@@ -101,17 +110,10 @@ img:last-of-type {
 .slide, .slide:before {
   background: 50% 50% / cover;  
 }
-
-.header {
-  text-align: center;
-  font-size: 175%;
-  color: #fff;
-  text-shadow: 0 5px 5px #000;
-}
 h1{
   position: absolute;
-  top: 50px;
-  left:15%;
+  top:0;
+  left:0;
   text-align: center;
 }
 #titre{
@@ -119,7 +121,7 @@ h1{
   font-family: 'Brush script MT';
   text-align: center;
   color:#F9ECE6;
-  font-size:100px;
+  font-size:55px;
   animation: cssTitre 1.5s 1 ease forwards;
   -webkit-animation: cssTitre 1.5s 1 ease forwards;
   -moz-animation: cssTitre 1.5s 1 ease forwards;
@@ -181,9 +183,7 @@ h1{
 #main{
   margin-left:30%;
 }
-h3{
-  font-size:32px;
-}
+
 
 
 
@@ -195,8 +195,10 @@ h3{
 
 }
 .menuChapitre li{
-  font-size:26px;
+  /* font-size:26px; */
+  font-size:16px;
   display: block;
+  padding-left:0;
 }
 .menuChapitre li a{
   text-decoration: none;
@@ -214,6 +216,7 @@ h3{
 
 }
 .menuChapitre{
+  padding-left:0; 
   width:100%;
   z-index:10000;
 }
@@ -267,4 +270,84 @@ h3{
 }
 #pseudo, #motDePasse{
   width:60%;
+}
+
+
+/************RESPONSIVE***************/
+@media screen and (min-width: 400px){
+  #titre{
+    font-size: 75px;
+  }
+  h2{
+    font-size:200%;
+  }
+  h3{
+    font-size:22px;
+ }
+ .menuChapitre{
+   padding-left:10%;
+ }
+
+}
+@media screen and (min-width: 768px){
+  #titre{
+    font-size: 85px;
+  }
+  .title2{
+    width:80%;
+  }
+  h1{
+    top: -20px;
+  }
+  h2{
+    font-size:200%;
+  }
+  h3{
+    font-size:22px;
+ }
+ .menuChapitre{
+   padding-left:40px;
+ }
+ .menuChapitre li{
+   font-size: 20px;
+ }
+ .title{
+   width:60%;
+ }
+
+}
+@media screen and (min-width: 992px){
+  #titre{
+    margin-left: 15%;
+  }
+  p{
+    font-size: 140%;
+  }
+  h1{
+    top:0px;
+  }
+  .title2{
+    width: 60%;
+  }
+  .menuChapitre li{
+    font-size: 26px;
+  }
+  #slide2 img{
+    display: block;
+  }
+
+}
+@media screen and (min-width: 1100px){
+  #titre{
+    font-size:100px;
+  }
+  h1{
+    top: 20px;
+  }
+  .title{
+    width:50%;
+  }
+  #slide3 img{
+    display: block;
+  }
 }

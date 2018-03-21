@@ -61,7 +61,7 @@ try{
         }        
     }
     else{
-        goGetLost();
+        throw new Exception('cette page n\'existe pas');
     }  
     }
 catch(Exception $e){

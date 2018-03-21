@@ -23,7 +23,7 @@ public function postChapterComment($id_Chapters, $id_Users, $comment_text)
 //POST SIGNAL COMMENTS IN DASHBOARD
 public function printComment(){
     $db = $this -> dbConnect();
-    $comAll = $db->query('SELECT id, id_Chapters, sig, comment_text, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_short FROM comments WHERE sig >1 ORDER BY sig DESC');
+    $comAll = $db->query('SELECT comments.id, chapter_number, id_Chapters, sig, comment_text, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_short FROM comments INNER JOIN chapters WHERE sig >1 && id_Chapters = chapters.id ORDER BY sig DESC');
     return $comAll;
 }
 }

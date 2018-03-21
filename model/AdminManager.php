@@ -23,39 +23,39 @@ public function upDataChapter($title, $chapter_number, $chapter_img, $chapter_te
     return $affectedLines;
 }
 //INSERT CHAPTER IN TINYMCE
-public function editChapter(){
+public function editChapter($idChapter){
     $db = $this -> dbConnect();
     $req = $db->prepare('SELECT id, title, chapter_number, chapter_img, chapter_text FROM chapters WHERE id = ?');
-    $req->execute(array($_GET['idChapter']));
+    $req->execute(array($idChapter));
     $post = $req->fetch();
     return $post;
 }
 //DELETE CHAPTER INTO DB
-public function deleteChapter(){
+public function deleteChapter($idChapter){
     $db = $this -> dbConnect();
     $deleteChapter = $db->prepare('DELETE FROM chapters WHERE id = ?');
-    $deleteChapter -> execute(array($_GET['idChapter']));
+    $deleteChapter -> execute(array($idChapter));
     return $deleteChapter;
 }
 //DELETE COMMENTS FROM DELETED CHAPTER INTO DB
-public function deleteComment(){
+public function deleteComment($idChapter){
     $db = $this -> dbConnect();
     $deleteComment = $db->prepare('DELETE FROM comments WHERE id_Chapters = ?');
-    $deleteComment -> execute(array($_GET['idChapter']));
+    $deleteComment -> execute(array($idChapter));
     return $deleteComment;
 }
 //DELETE SIGNALED COMMENT FROM DASHBOARD INTO DB
-public function deleteSingleComment(){
+public function deleteSingleComment($idComment){
     $db = $this -> dbConnect();
     $deleteSingleComment = $db->prepare('DELETE FROM comments WHERE id = ?');
-    $deleteSingleComment -> execute(array($_GET['idComment']));
+    $deleteSingleComment -> execute(array($idComment));
     return $deleteSingleComment;
 }
 //APPROVE SIGNALED COMMENT FROM DASHBOARD INTO DB
-public function validComment(){
+public function validComment($idComment){
     $db = $this -> dbConnect();
     $validComment = $db->prepare('UPDATE comments SET sig = 0 WHERE id = ?');
-    $validComment -> execute(array($_GET['idComment']));
+    $validComment -> execute(array($idComment));
     return $validComment;
 }
 //UPDATE SIGNAL INTO DB

@@ -7,6 +7,7 @@
         </p>
         <div class="sortie">
         <p><a href="index.php">Revenir à la page d'Accueil</a></p>
+        <p><a href="index.php?action=subView">Aller à la page d'inscription</a></p>
     </div>
     </div>
 <?php $content = ob_get_clean(); ?>

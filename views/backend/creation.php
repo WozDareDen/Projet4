@@ -7,8 +7,8 @@
             <input type="text" id="title" name="title" /></br>
             <label  for="chapter_number" >Numéro du Chapitre</label>
             <input type="number" id="chapter_number" name="chapter_number" /></br>
-            <label  for="chapter_img">Photo du Chapitre</label>
-            <input type="file" id="chapter_img" name="chapter_img" />
+            <label  class="upper" for="chapter_img">Photo du Chapitre</label>
+            <input class="upper" type="file" id="chapter_img" name="chapter_img" />
             <textarea id="texte" name="chapter_text" rows="30" ></textarea>
             <input type="submit" value="publier" />
         </form>

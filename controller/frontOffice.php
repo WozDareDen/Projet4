@@ -4,15 +4,6 @@ require_once('model/ChapterManager.php');
 require_once('model/CommentManager.php');
 require_once('model/UserManager.php');
 require_once('model/AdminManager.php');
-// CHAPTER VIEW 
-function setChapter($id)
-{
-    $chapterManager = new ChapterManager();
-    $commentManager = new CommentManager();
-    $post = $chapterManager -> getChapter($id);
-    $comments = $commentManager -> getChapterComments($_GET['id']);
-    require('views/frontend/ChapterView.php');
-}
 // HOME VIEW
 function setAllChapters()
 {
@@ -22,7 +13,19 @@ function setAllChapters()
     $lastPost = $chapterManager -> getLastChapter();    
     require('views/frontend/HomeView.php');
 }
-
+// CHAPTER VIEW 
+function setChapter($id)
+{
+    $chapterManager = new ChapterManager();
+    $commentManager = new CommentManager();
+    $post = $chapterManager -> getChapter($id);
+    $comments = $commentManager -> getChapterComments($_GET['id']);
+    require('views/frontend/ChapterView.php');
+}
+// SUBSCRIBEVIEW
+function subView(){
+    require('views/frontend/SubscribeView.php');
+}
 // GET COMMENTS TO DB & CHAPTERVIEW
 function addComment($id_Chapters, $id_Users, $comment_text)
 {
@@ -41,30 +44,24 @@ function addSignal($commentId,$chapterId){
     $updateSignal = $commentSignal -> updateSignal($commentId);
     header('Location:index.php?action=post&id='.$chapterId.'#comments');
 }
-// SUBSCRIBEVIEW
-function subView(){
-    require('views/frontend/SubscribeView.php');
-}
-// GET USER TO DB & HOMEVIEW
-function newUser($username, $pass, $mail)
-{
-    $userManager = new UserManager();
-    $connex = $userManager -> addUser($username, $pass, $mail);
-    header('Location: index.php');
-}
 //LOGIN FUNCTION
 function connected(){
     $username = $_POST['username'];
     $pass = $_POST['pass'];
     $userManager = new UserManager();
-    $req = $userManager -> userConnex();
+    $req = $userManager -> userConnex($username);
     $resultat = $req->fetch();
     $isPasswordCorrect = password_verify($_POST['pass'],$resultat['pass']);
-        if($isPasswordCorrect){
+        if($isPasswordCorrect && $resultat['v'] == 1){
             $_SESSION['username'] =  $resultat['username'];
             $_SESSION['id'] =  $resultat['id'];
-            header('Location: index.php');
+            header('Location: admin.php?action=dashboard');
         }
+        elseif($isPasswordCorrect){
+            $_SESSION['username'] =  $resultat['username'];
+            $_SESSION['id'] =  $resultat['id'];
+            header('Location: index.php');             
+          }
         else{
             throw new Exception('vos identifiants sont incorrects');
         }
@@ -95,4 +92,11 @@ function sameUser(){
     else{
         throw new Exception('ce pseudo existe déjà');
     }
+}
+// GET USER TO DB & HOMEVIEW
+function newUser($username, $pass, $mail)
+{
+    $userManager = new UserManager();
+    $connex = $userManager -> addUser($username, $pass, $mail);
+    header('Location: index.php');
 }

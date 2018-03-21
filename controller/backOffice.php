@@ -4,10 +4,6 @@ require('model/ChapterManager.php');
 require('model/CommentManager.php');
 require('model/UserManager.php');
 require('model/AdminManager.php');
-// GO TO EDITION
-function goToEdition(){
-    require('views/backend/creation.php');
-}
 // GO TO DASHBOARD from Login or already login
 function goToDashboard(){
     $chapterManager = new ChapterManager();
@@ -15,10 +11,6 @@ function goToDashboard(){
     $commentManager = new CommentManager();
     $comAll = $commentManager ->printComment();
     require('views/backend/dashboard.php');
-}
-// DEFAULT LOGIN PAGE
-function goGetLost(){
-    require('views/backend/login.php');
 }
 // GET CHAPTER TO MODEL & DASHBOARD
 function pushChapter($title, $chapter_number,$chapter_img, $chapter_text){
@@ -34,26 +26,34 @@ function updateChapter($title, $chapter_number,$chapter_img, $chapter_text, $idC
 }
 // DELETE CHAPTER TO MODEL & dashboard
 function theEraser(){
+    $idChapter = $_GET['idChapter'];    
     $adminManager = new AdminManager();
-    $deleteComment = $adminManager -> deleteComment(); 
-    $deleteChapter = $adminManager -> deleteChapter();
+    $deleteComment = $adminManager -> deleteComment($idChapter); 
+    $deleteChapter = $adminManager -> deleteChapter($idChapter);
     header('Location: admin.php?action=dashboard');
+}
+// GO TO EDITION
+function goToEdition(){
+    require('views/backend/creation.php');
 }
 // GET CHAPTER TO MODEL & EDITION
 function theEditor(){
+    $idChapter = $_GET['idChapter'];
     $adminManager = new AdminManager();
-    $post = $adminManager -> editChapter();
+    $post = $adminManager -> editChapter($idChapter);
     require('views/backend/edition.php');
 }
 // DELETE COMMENT FROM CHAPTER TO MODEL & dashboard
 function forgetCom(){
+    $idComment = $_GET['idComment'];
     $adminManager = new AdminManager();
-    $deleteSingleComment = $adminManager -> deleteSingleComment();
+    $deleteSingleComment = $adminManager -> deleteSingleComment($idComment);
     header('Location: admin.php?action=dashboard');
 }
 // APPROVE COMMENT FROM CHAPTER TO MODEL & dashboard
 function validCom(){
+    $idComment = $_GET['idComment'];
     $adminManager = new AdminManager();
-    $validComment = $adminManager->validComment();
+    $validComment = $adminManager->validComment($idComment);
     header('Location: admin.php?action=dashboard');
 }

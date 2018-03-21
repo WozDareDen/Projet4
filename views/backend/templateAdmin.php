@@ -4,8 +4,8 @@
 	<title><?= $title ?></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="title" content="test TinyMCE"/>
-	<link rel="stylesheet" href="public/css/move2.css" />
 	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link rel="stylesheet" href="public/css/move2.css" />
 	<script type="text/javascript" src="views/backend/tiny_mce/tiny_mce.js"></script>
 	<script type="text/javascript">
 		tinyMCE.init({
@@ -17,7 +17,8 @@
 			// en mode avancé, cela permet de choisir les plugins
 			theme : "advanced", 
 			// liste des plugins
-			plugins : "autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
+			selector: "textarea",
+			plugins : "autoresize,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",
 
 			// les outils à afficher
 			theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
@@ -35,7 +36,7 @@
 			theme_advanced_resizing : true,
 			
 			// chemin vers le fichier css
-			content_css : "design-tiny.css,", 
+			// content_css : "views/backend/global/design-tiny.css", 
 			// taille disponible
 			theme_advanced_font_sizes: "10px,11px,12px,13px,14px,15px,16px,17px,18px,19px,20px,21px,22px,23px,24px,25px", 
 			// couleur disponible dans la palette de couleur
