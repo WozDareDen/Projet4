@@ -10,6 +10,10 @@ function goToDashboard(){
     $postAll = $chapterManager ->getAllChapters();
     $commentManager = new CommentManager();
     $comAll = $commentManager ->printComment();
+    $comStats = $commentManager ->commentStats();
+    $userManager = new UserManager();
+    $userInfos = $userManager ->lastStatUser();
+    $useAll = $userManager ->userStats();
     require('views/backend/dashboard.php');
 }
 // GET CHAPTER TO MODEL & DASHBOARD

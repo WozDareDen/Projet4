@@ -1,6 +1,7 @@
 <?php $title = "Page d'inscription" ?>
 <?php ob_start(); ?>
 <div class="main">
+<!--SUB FORM-->        
         <h1>Formulaire d'inscription</h1>
         <h2>Simple et rapide !</h2>
         <p class="sortie"><span class="taille">L'inscription à ce blog est gratuite !</span> Nous insistons sur le fait que vous devez respecter les règles détaillées ci-dessous. Si vous êtes d'accord avec les règles, veuillez cocher la case « <span class="italic">J'ai lu les règles d'usage et j'accepte de les respecter</span> » et cliquez sur le bouton «<span class="italic"> S'inscrire </span>». Les messages expriment uniquement les opinions de leurs auteurs. L'Administrateur ainsi que Jean Forteroche ne sauraient être considérés comme responsables du contenu des messages dont ils ne sont pas les auteurs.</p>

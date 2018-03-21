@@ -1,6 +1,7 @@
 <?php $title = "Interface d'Edition" ?>
 <?php ob_start(); ?>	
     <div class="main">
+<!--EDITION FORM-->        
         <h1>Interface d'Edition</h1>
         <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=write" method="post">
             <label  for="title">Titre du Chapitre</label>
@@ -12,6 +13,7 @@
             <textarea id="texte" name="chapter_text" rows="30" ></textarea>
             <input type="submit" value="publier" />
         </form>
+<!--PRACTICAL ADVICES-->        
         <div id="advice" class="entree commentsEdition">
             <h2>Quelques conseils pratiques</h2>
             <dl>

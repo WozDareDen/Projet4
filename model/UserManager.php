@@ -27,4 +27,14 @@ public function addUser($username, $pass, $mail){
     $connex->execute(array($username, $pass_hache, $mail));
     return $connex;
     }
+public function userStats(){
+    $db = $this -> dbconnect();
+    $useAll = $db->query('SELECT COUNT(*) FROM users');
+    return $useAll;
+}
+public function lastStatUser(){
+    $db = $this -> dbConnect();
+    $userInfos = $db->query('SELECT id, username, DATE_FORMAT(registration_date,\'%d\.%m\.%Y\') AS reg_date FROM users WHERE id IN(select MAX(id) FROM users)');
+    return $userInfos;
+}
 }

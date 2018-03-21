@@ -19,7 +19,6 @@ public function getAllChapters()
 {
     $db = $this -> dbConnect();
     $postAll = $db->query('SELECT id, title, chapter_number, chapter_img, chapter_text, DATE_FORMAT(chapter_date, \'%d/%m/%Y à %Hh%imin\') AS chapter_date_fr FROM chapters ORDER BY chapter_number DESC');
-
     return $postAll;
 }
 // LAST CHAPTER DATA

@@ -15,7 +15,7 @@
 			// id ou class, des textareas
 			elements : "texte,texte2", 
 			// en mode avancé, cela permet de choisir les plugins
-			theme : "advanced", 
+			theme : "simple", 
 			// liste des plugins
 			selector: "textarea",
 			plugins : "autoresize,autolink,lists,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,wordcount,advlist,autosave,visualblocks",

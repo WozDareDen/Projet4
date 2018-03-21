@@ -16,6 +16,7 @@
                 <div class="comments" id="comments">
                         <h2>Commentaires</h2>  
 <?php 
+//VERIFY CONNECTED USER TO POST
 if(empty($_SESSION['username'])){
 ?>
                 <div><p>Vous devez être connecté pour poster un commentaire</p></div>      
@@ -43,6 +44,7 @@ else{
                         </form></br>
 <?php    
 }   
+// COMMENTS LIST
 while ($comment = $comments->fetch()){   
 ?>                   
                         <p id="comments-<?= $comment['id'] ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="index.php?action=signal&id=<?= $comment['id'] ?>&idChapter=<?= $post['id'] ?>"> signalez !</a></span></p>

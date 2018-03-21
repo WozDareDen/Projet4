@@ -128,11 +128,10 @@ dt{
 .colorTeal{
     color: #008080;
 }
-/* .upper{
-    position: absolute;
-    top:70px;
-    left:7%;
-} */
+#texte{
+   display:flex;
+   width: 100%;
+}
 /************************************************/
 /***************REGISTRATION BOX*****************/
 /************************************************/
@@ -224,6 +223,9 @@ dt{
     }
     #username, #pass, #pass2, #mail{
         width:60%;
+    }
+    .commentsEdition{
+        width: 80%;
     }
 }
 @media screen and (min-width: 992px){

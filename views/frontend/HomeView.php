@@ -10,6 +10,7 @@
     </div>
     <div id="identify">
 <?php 
+//LOGIN BOX
 if(empty($_SESSION['username'])){
 ?>
       <button class="identifyB">s'identifier</button>
@@ -61,7 +62,7 @@ $postAll->closeCursor();
     </p>
   </div>
 </div>
-
+<!--BIO-->
 <div id="slide2" class="slide">
   <div class="title">
     <h2>Qui es-tu Jean Forteroche ?</h2>
