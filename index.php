@@ -4,7 +4,7 @@ require('controller/frontOffice.php');
 try{
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'post') {
-            $id = $_GET['id'];
+            $id = htmlspecialchars($_GET['id']);
             if (isset($id) && $id > 0) {                
                 setChapter($id);
             }
@@ -13,13 +13,13 @@ try{
             }
         }
         elseif($_GET['action'] == 'signal'){
-            $commentId = $_GET['id'];
-            $chapterId = $_GET['idChapter'];
+            $commentId = htmlspecialchars($_GET['id']);
+            $chapterId = htmlspecialchars($_GET['idChapter']);
             addSignal($commentId,$chapterId);
         }
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                $id_Chapters = $_GET['id']; 
+                $id_Chapters = htmlspecialchars($_GET['id']); 
                 $id_Users = htmlspecialchars($_POST['id_Users']);
                 $comment_text = htmlspecialchars($_POST['comment_text']);
                 if (!empty($id_Users) && !empty($comment_text)) {
