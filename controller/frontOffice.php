@@ -17,9 +17,12 @@ function setAllChapters()
 function setChapter($id)
 {
     $chapterManager = new ChapterManager();
-    $commentManager = new CommentManager();
+    $commentManager = new CommentManager();    
     $post = $chapterManager -> getChapter($id);
-    $comments = $commentManager -> getChapterComments($_GET['id']);
+    if(!$post){
+        throw new Exception('numéro de chapitre inexistant');
+    }   
+    $comments = $commentManager -> getChapterComments($id);
     require('views/frontend/ChapterView.php');
 }
 // SUBSCRIBEVIEW
@@ -45,21 +48,19 @@ function addSignal($commentId,$chapterId){
     header('Location:index.php?action=post&id='.$chapterId.'#comments');
 }
 //LOGIN FUNCTION
-function connected(){
-    $username = $_POST['username'];
-    $pass = $_POST['pass'];
+function connected($username,$pass){
+    
     $userManager = new UserManager();
     $req = $userManager -> userConnex($username);
     $resultat = $req->fetch();
-    $isPasswordCorrect = password_verify($_POST['pass'],$resultat['pass']);
-        if($isPasswordCorrect && $resultat['v'] == 1){
-            $_SESSION['username'] =  $resultat['username'];
-            $_SESSION['id'] =  $resultat['id'];
+    $isPasswordCorrect = password_verify($pass,$resultat['pass']);
+    $_SESSION['username'] =  $resultat['username'];
+    $_SESSION['v'] = $resultat['v'];
+    $_SESSION['id'] =  $resultat['id'];
+        if($isPasswordCorrect && $resultat['v'] == 1){         
             header('Location: admin.php?action=dashboard');
         }
         elseif($isPasswordCorrect){
-            $_SESSION['username'] =  $resultat['username'];
-            $_SESSION['id'] =  $resultat['id'];
             header('Location: index.php');             
           }
         else{
@@ -73,13 +74,13 @@ function disconnected(){
     header('Location: index.php');
 }
 //USER CONTROLS BEFORE DB & NEWUSER
-function sameUser(){
+function sameUser($username, $pass, $mail){
     $userManager = new UserManager();
     $resultat = $userManager -> verifyUser();
     if($resultat == 0){
-        if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\da-zA-Z]{8,16}$/", $_POST['pass'])){
-            if(preg_match("#^\w{3,25}$#",$_POST['username'])){           
-            newUser($_POST['username'], $_POST['pass'], $_POST['mail']);
+        if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[\da-zA-Z]{8,16}$/", $pass)){
+            if(preg_match("#^\w{3,25}$#",$username)){           
+            newUser($username, $pass, $mail);
             }   
             else{
                 throw new Exception('votre pseudo ne doit compter que des lettres ou des chiffres au nombre de 3 minimum');

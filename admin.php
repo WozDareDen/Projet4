@@ -2,18 +2,23 @@
 session_start();
 require('controller/backOffice.php');
 try{   
-   if (isset($_GET['action'])) {                
-          if((isset($_POST['login']) && isset($_POST['pass'])) || (isset($_SESSION['username']) && ($_SESSION['id']==26)) ){               
-            if($_GET['action'] == 'dashboard'){
+   if (isset($_GET['action'])) {       
+        
+          if((isset($_POST['login']) && isset($_POST['pass'])) || (isset($_SESSION['username']) && ($_SESSION['v']==1)) ){               
+            if($_GET['action'] == 'dashboard'){  
             goToDashboard();
         } 
             if($_GET['action'] == 'edition'){
                 goToEdition();
             }                
             elseif($_GET['action'] == 'write'){
-                if(!empty($_POST['title']) && !empty($_POST['chapter_number']) && !empty($_POST['chapter_img']) && !empty($_POST['chapter_text'])){
-                    if($_POST['chapter_number'] > 0){
-                        pushChapter($_POST['title'],$_POST['chapter_number'],$_POST['chapter_img'],$_POST['chapter_text']);
+                $title = htmlspecialchars($_POST['title']);
+                $chapter_number = htmlspecialchars($_POST['chapter_number']);
+                $chapter_img = htmlspecialchars($_POST['chapter_img']);
+                $chapter_text = htmlspecialchars($_POST['chapter_text']);
+                if(!empty($title) && !empty($chapter_number) && !empty($chapter_img) && !empty($chapter_text)){
+                    if($chapter_number > 0){
+                        pushChapter($title,$chapter_number,$chapter_img,$chapter_text);
                     }
                     else{
                         throw new Exception('Le numéro de chapitre doit être positif');
@@ -23,10 +28,15 @@ try{
                     throw new Exception('Tous les champs ne sont pas remplis');
                 }
             }
-            elseif($_GET['action'] == 'update'){ 
-                if(!empty($_POST['title']) && !empty($_POST['chapter_number']) && !empty($_POST['chapter_img']) && !empty($_POST['chapter_text'])){
-                    if($_POST['chapter_number'] > 0){
-                        updateChapter($_POST['title'],$_POST['chapter_number'],$_POST['chapter_img'],$_POST['chapter_text'],$_POST['idChapter']);
+            elseif($_GET['action'] == 'update'){
+                $title = htmlspecialchars($_POST['title']);
+                $chapter_number = htmlspecialchars($_POST['chapter_number']);
+                $chapter_img = htmlspecialchars($_POST['chapter_img']);
+                $chapter_text = htmlspecialchars($_POST['chapter_text']);
+                $idChapter = htmlspecialchars($_POST['idChapter']);
+                if(!empty($title) && !empty($chapter_number) && !empty($chapter_img) && !empty($chapter_text)){
+                    if($chapter_number > 0){
+                        updateChapter($title,$chapter_number,$chapter_img,$chapter_text);
                     }
                     else{
                         throw new Exception('Le numéro de chapitre doit être positif');

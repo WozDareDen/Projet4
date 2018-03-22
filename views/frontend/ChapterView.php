@@ -45,11 +45,20 @@ else{
 <?php    
 }   
 // COMMENTS LIST
+if(!$comments){
+?>
+                        <p>Il n\'y a pas de commentaire.</p>
+<?php
+}
+else{
+
+
 while ($comment = $comments->fetch()){   
 ?>                   
                         <p id="comments-<?= $comment['id'] ?>"><span class="blue"><strong><?= htmlspecialchars($comment['username']) ?></strong></span> le <?= $comment['comment_date_fr'] ?> - <span class="signal"><a href="index.php?action=signal&id=<?= $comment['id'] ?>&idChapter=<?= $post['id'] ?>"> signalez !</a></span></p>
                         <p><?= nl2br(htmlspecialchars($comment['comment_text'])) ?></p>
 <?php
+}
 }
 ?>                       
                 </div>

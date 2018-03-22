@@ -1,25 +1,29 @@
 <?php
 session_start();
-//Routeur require Controller 
 require('controller/frontOffice.php');
-// //gestion des erreurs
 try{
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'post') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
-                setChapter($_GET['id']);
+            $id = $_GET['id'];
+            if (isset($id) && $id > 0) {                
+                setChapter($id);
             }
             else {
                 throw new Exception('aucun identifiant de billet envoyé');
             }
         }
         elseif($_GET['action'] == 'signal'){
-            addSignal($_GET['id'],$_GET['idChapter']);
+            $commentId = $_GET['id'];
+            $chapterId = $_GET['idChapter'];
+            addSignal($commentId,$chapterId);
         }
         elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
-                if (!empty($_POST['id_Users']) && !empty($_POST['comment_text'])) {
-                    addComment($_GET['id'], $_POST['id_Users'], $_POST['comment_text']);
+                $id_Chapters = $_GET['id']; 
+                $id_Users = htmlspecialchars($_POST['id_Users']);
+                $comment_text = htmlspecialchars($_POST['comment_text']);
+                if (!empty($id_Users) && !empty($comment_text)) {
+                    addComment($id_Chapters, $id_Users, $comment_text);
                 }
                 else {
                     throw new Exception('tous les champs ne sont pas remplis');
@@ -33,10 +37,14 @@ try{
             subView();            
         }
         elseif ($_GET['action'] == 'addUser'){
-            if(strlen(htmlspecialchars($_POST['username'])) <= 20 ){
-                if(htmlspecialchars($_POST['pass']) == htmlspecialchars($_POST['pass2'])){
-                    if(filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL)){                        
-                        sameUser();                        
+            $username = htmlspecialchars($_POST['username']);
+            $pass = htmlspecialchars($_POST['pass']);
+            $pass2 = htmlspecialchars($_POST['pass2']);
+            $mail = htmlspecialchars($_POST['mail']);
+            if(strlen($username) <= 20 ){
+                if($pass == $pass2){
+                    if(filter_var($mail, FILTER_VALIDATE_EMAIL)){                        
+                        sameUser($username, $pass, $mail);                        
                     }
                     else{
                         throw new Exception('votre adresse mail n\'est pas valide');
@@ -54,8 +62,10 @@ try{
             disconnected();
         }
         elseif ($_GET['action'] == 'record'){
-            if(isset($_POST['username']) && isset($_POST['pass'])){
-                    connected();
+            $username = htmlspecialchars($_POST['username']);
+            $pass = htmlspecialchars($_POST['pass']);
+            if(isset($username) && isset($pass)){
+                    connected($username,$pass);
             }
             else{
                     throw new Exception('veuillez renseignez vos identifiants');
