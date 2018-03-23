@@ -87,7 +87,7 @@ $userInfo = $userInfos->fetch();
             Ils ont posté un total de <span class="fatRed"><?=$statCom[0] ?></span> commentaires.<br />
             L'utilisateur enregistré le plus récent est <span class="fatRed"><?= $userInfo['username'] ?></span>, le <?=$userInfo['reg_date'] ?>.<br />
             Il y a eu <span class="fatRed"><?= $compte ?></span> pages vues sur le site.<br />
-            Il y a eu <span class="fatRed"><?= $compte2 ?></span> visiteurs uniques sur le site.
+            Il y a eu <span class="fatRed"><?= $compte2 ?></span> visiteurs sur le site.
             </p>
         </div>
         <div>
