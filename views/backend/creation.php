@@ -21,7 +21,7 @@
                     <dd><span class="fatRed">Tous les champs doivent être renseignés</span>. Celui-ci ne fait pas exception à la règle. Une liste déroulante de numéros défile. Je n'ai pas inséré de contrainte à ce niveau. Il vous est donc théoriquement possible d'inscrire 0 ou même des nombres négatifs. Cependant une erreur apparaîtra et vous ne pourrez pas publier l'article. 
                     </dd>
                 <dt>Publication</dt>
-                    <dd>Vous pouvez publier vos articles de deux façons. Soit en cliquant sur la disquette en haut à gauche de l'éditeur de texte, soit en cliquant simplement sur le bouton publier en bas à gauche.
+                    <dd>Vous pouvez publier vos articles en cliquant simplement sur le bouton publier en bas à gauche.
                     </dd>
             </dl>
         </div>

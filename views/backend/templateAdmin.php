@@ -27,7 +27,7 @@
 			theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak,restoredraft,visualblocks",
 			
 			// emplacement de la toolbar
-			theme_advanced_toolbar_location : "top",  
+			theme_simple_toolbar_location : "top",  
 			// alignement de la toolbar
 			theme_advanced_toolbar_align : "left",
 			// positionnement de la barre de statut
