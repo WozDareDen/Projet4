@@ -41,7 +41,7 @@ try{
             $pass = htmlspecialchars($_POST['pass']);
             $pass2 = htmlspecialchars($_POST['pass2']);
             $mail = htmlspecialchars($_POST['mail']);
-            if(strlen($username) <= 20 ){
+            if(strlen($username) <= 25 ){
                 if($pass == $pass2){
                     if(filter_var($mail, FILTER_VALIDATE_EMAIL)){                        
                         sameUser($username, $pass, $mail);                        
