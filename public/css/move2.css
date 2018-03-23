@@ -86,7 +86,7 @@ dt{
     color: rgb(160, 32, 143);
 }
 #username, #pass, #pass2, #mail{
-    width:100%;
+    width:90%;
 }
 #newOne{
     color: red;
