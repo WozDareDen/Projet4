@@ -15,7 +15,7 @@ try{
                 $title = htmlspecialchars($_POST['title']);
                 $chapter_number = htmlspecialchars($_POST['chapter_number']);
                 $chapter_img = htmlspecialchars($_POST['chapter_img']);
-                $chapter_text = htmlspecialchars($_POST['chapter_text']);
+                $chapter_text = ($_POST['chapter_text']);
                 if(!empty($title) && !empty($chapter_number) && !empty($chapter_img) && !empty($chapter_text)){
                     if($chapter_number > 0){
                         pushChapter($title,$chapter_number,$chapter_img,$chapter_text);
@@ -32,7 +32,7 @@ try{
                 $title = htmlspecialchars($_POST['title']);
                 $chapter_number = htmlspecialchars($_POST['chapter_number']);
                 $chapter_img = htmlspecialchars($_POST['chapter_img']);
-                $chapter_text = htmlspecialchars($_POST['chapter_text']);
+                $chapter_text = ($_POST['chapter_text']);
                 $idChapter = htmlspecialchars($_POST['idChapter']);
                 if(!empty($title) && !empty($chapter_number) && !empty($chapter_img) && !empty($chapter_text)){
                     if($chapter_number > 0){
