@@ -36,7 +36,7 @@ try{
                 $idChapter = htmlspecialchars($_POST['idChapter']);
                 if(!empty($title) && !empty($chapter_number) && !empty($chapter_img) && !empty($chapter_text)){
                     if($chapter_number > 0){
-                        updateChapter($title,$chapter_number,$chapter_img,$chapter_text);
+                        updateChapter($title,$chapter_number,$chapter_img,$chapter_text,$idChapter);
                     }
                     else{
                         throw new Exception('Le numéro de chapitre doit être positif');
