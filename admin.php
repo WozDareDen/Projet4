@@ -46,6 +46,24 @@ try{
                     throw new Exception('Tous les champs ne sont pas remplis');
                 }
             }
+            elseif($_GET['action'] == 'stock'){
+                $title = htmlspecialchars($_POST['title']);
+                $chapter_number = htmlspecialchars($_POST['chapter_number']);
+                $chapter_img = htmlspecialchars($_POST['chapter_img']);
+                $chapter_text = ($_POST['chapter_text']);
+                $idChapter = htmlspecialchars($_POST['idChapter']);
+                if(!empty($title) && !empty($chapter_number) && !empty($chapter_img) && !empty($chapter_text)){
+                    if($chapter_number > 0){
+                        inStockChapter($title,$chapter_number,$chapter_img,$chapter_text,$idChapter);
+                    }
+                    else{
+                        throw new Exception('Le numéro de chapitre doit être positif');
+                    }
+                }
+                else{
+                    throw new Exception('Tous les champs ne sont pas remplis');
+                }
+            }
             elseif(isset($_GET['action']) && isset($_GET['idChapter'])){
                 if($_GET['action'] == 'delete'){
                     theEraser();
@@ -53,8 +71,8 @@ try{
                 if($_GET['action'] == 'edit'){
                     theEditor();
                 }
-                else{
-                    throw new Exception('bien tenté !');
+                if($_GET['action'] == "changeStatus"){
+                    theStatus();
                 }
             }
             elseif(isset($_GET['action']) && isset($_GET['idComment'])){

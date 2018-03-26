@@ -5,7 +5,7 @@
   <div id="title" class="slide">
     <h1 id="titre">Billet simple pour l'Alaska</h1>
     <div class="title2">
-    <p>Bienvenue sur le blog de l'acteur et écrivain <span class="JF">Jean Forteroche</span>. Il travaille actuellement sur son prochain roman. Dans la grande tradition des romans-feuilleton du XIXème siècle et à l'instar du maître du fantastique Stephen King avec La Ligne Verte, il souhaite publier sa dernière oeuvre par épisodes. Il se positionne en feuilletoniste du XXIème siècle et souhaite, à travers les possibilité offertes par le web dont découlent les nouveaux usages de lecture, se rapprocher de ses lecteurs, rompant ainsi la distance d'un auteur avec son public. 
+    <p>Bienvenue sur le blog de l'acteur et écrivain <span class="JF">Jean Forteroche</span>. Il travaille actuellement sur son prochain roman. Dans la grande tradition des romans-feuilleton du XIXème siècle et à l'instar du maître du fantastique Stephen King avec La Ligne Verte, il souhaite publier sa dernière oeuvre par épisodes. Il se positionne en feuilletoniste du XXIème siècle et souhaite, à travers les possibilités offertes par le web dont découlent les nouveaux usages de lecture, se rapprocher de ses lecteurs, rompant ainsi la distance d'un auteur avec son public. 
     </p>
     </div>
     <div id="identify">
@@ -88,6 +88,11 @@ $lastData = $lastPost->fetch();
 $lastPost->closeCursor(); 
 ?>
 </div>
+<!-- <div id="slide4" class="slide4 header">
+    <h2><a href="mailto:fsadot@free.fr">Contactez l'auteur</a></h2>
+    <p>Projet 4 OpenClassRooms-DWJ</p>
+    <p>Florent Sadot - ©Kercode 2018</p>
+</div> -->
 <!--template.php-->
 <?php $content = ob_get_clean(); ?>
 <?php require('template.php'); ?>

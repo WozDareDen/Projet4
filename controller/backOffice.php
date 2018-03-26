@@ -14,12 +14,20 @@ function goToDashboard(){
     $userManager = new UserManager();
     $userInfos = $userManager ->lastStatUser();
     $useAll = $userManager ->userStats();
+    $adminManager = new AdminManager();
+    $noPostAll = $adminManager ->unPublishedChapters();
     require('views/backend/dashboard.php');
 }
 // GET CHAPTER TO MODEL & DASHBOARD
 function pushChapter($title, $chapter_number,$chapter_img, $chapter_text){
     $adminManager = new AdminManager();
     $postChapter = $adminManager -> postChapter($title, $chapter_number,$chapter_img, $chapter_text);
+    header('Location: admin.php?action=dashboard');
+}
+// GET CHAPTER TO MODEL & DASHBOARD
+function inStockChapter($title, $chapter_number,$chapter_img, $chapter_text){
+    $adminManager = new AdminManager();
+    $postChapter = $adminManager -> stockChapter($title, $chapter_number,$chapter_img, $chapter_text);
     header('Location: admin.php?action=dashboard');
 }
 // UPDATE CHAPTER TO MODEL & DASHBOARD
@@ -59,5 +67,11 @@ function validCom(){
     $idComment = $_GET['idComment'];
     $adminManager = new AdminManager();
     $validComment = $adminManager->validComment($idComment);
+    header('Location: admin.php?action=dashboard');
+}
+function theStatus(){
+    $idChapter = $_GET['idChapter'];
+    $adminManager = new AdminManager();
+    $updateStatus = $adminManager->changeStatus($idChapter);
     header('Location: admin.php?action=dashboard');
 }

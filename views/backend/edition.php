@@ -3,7 +3,7 @@
     <div class="main">
 <!--EDITION FORM-->        
         <h1>Interface d'Edition</h1>
-        <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=update" method="post">
+        <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=stock" method="post">
             <input hidden type="number" name="idChapter" value="<?=$_GET['idChapter'] ?>"
             <label  for="title">Titre du Chapitre</label>
             <input type="text" id="title" name="title" value="<?=($post['title']) ?>" /></br>
@@ -12,7 +12,7 @@
             <label  for="chapter_img">Photo du Chapitre</label>
             <input type="file" id="chapter_img" name="chapter_img" />
             <textarea id="texte" name="chapter_text" rows="30" ><?=($post['chapter_text']) ?></textarea>
-            <input type="submit" value="publier" />
+            <input type="submit" value="sauvegarder" />
         </form>
 <!--PRACTICAL ADVICES-->        
         <div id="advice" class="entree commentsEdition">
@@ -22,7 +22,7 @@
                     <dd><span class="fatRed">Tous les champs doivent être renseignés</span>. Celui-ci ne fait pas exception à la règle. Une liste déroulante de numéros défile. Je n'ai pas inséré de contrainte à ce niveau. Il vous est donc théoriquement possible d'inscrire 0 ou même des nombres négatifs. Cependant une erreur apparaîtra et vous ne pourrez pas publier l'article. 
                     </dd>
                 <dt>Publication</dt>
-                    <dd>Vous pouvez publier vos articles en cliquant simplement sur le bouton publier en bas à gauche.
+                    <dd>Vos chapitres sont sauvegardés par défaut. Vous pouvez ensuite les publier sur votre Tableau de Bord en cliquant simplement sur l'icone orange dans la partie "Mes chapitres en cours".
                     </dd>
             </dl>
         </div>

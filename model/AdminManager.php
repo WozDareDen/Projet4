@@ -4,14 +4,30 @@ require_once('model/Manager.php');
 //CommentsObject :
 class AdminManager extends Manager
 {
-//INSERT CHAPTER INTO DB
+//INSERT CHAPTER INTO DB & PUBLISH
 public function postChapter($title, $chapter_number, $chapter_img, $chapter_text)
 {
     $chapter_img = "public/images/".$chapter_img;
     $db = $this -> dbConnect();
-    $postChapter = $db->prepare('INSERT INTO chapters(title, chapter_number, chapter_img, chapter_text, chapter_date) VALUES(?,?,?,?, NOW())');
+    $postChapter = $db->prepare('INSERT INTO chapters(title, chapter_number, chapter_img, chapter_text, statut, chapter_date) VALUES(?,?,?,?,1, NOW())');
     $affectedLines = $postChapter->execute(array($title, $chapter_number, $chapter_img, $chapter_text));    
     return $postChapter;
+}
+//INSERT CHAPTER INTO DB only
+public function stockChapter($title, $chapter_number, $chapter_img, $chapter_text)
+{
+    $chapter_img = "public/images/".$chapter_img;
+    $db = $this -> dbConnect();
+    $postChapter = $db->prepare('INSERT INTO chapters(title, chapter_number, chapter_img, chapter_text, statut, chapter_date) VALUES(?,?,?,?,0, NOW())');
+    $affectedLines = $postChapter->execute(array($title, $chapter_number, $chapter_img, $chapter_text));    
+    return $postChapter;
+}
+// ALL CHAPTERS DATA
+public function unPublishedChapters()
+{
+    $db = $this -> dbConnect();
+    $noPostAll = $db->query('SELECT id, title, chapter_number, statut FROM chapters WHERE statut=0 ORDER BY chapter_number DESC');
+    return $noPostAll;
 }
 //INSERT EDITED CHAPTER INTO DB
 public function upDataChapter($title, $chapter_number, $chapter_img, $chapter_text, $idChapter)
@@ -64,5 +80,12 @@ public function updateSignal($signal){
     $updateSignal = $db->prepare('UPDATE comments SET sig = (sig+1) WHERE id= ?');
     $updateSignal->execute(array($signal));
     return $updateSignal;
+}
+//UPDATE STATUS
+public function changeStatus($idChapter){
+    $db = $this -> dbConnect();
+    $updateStatus = $db->prepare('UPDATE chapters SET statut = 1 WHERE id=?');
+    $updateStatus->execute(array($idChapter));
+    return $updateStatus;
 }
 }

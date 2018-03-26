@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-
+@import url(https://fonts.googleapis.com/css?family=Yellowtail);
 html {
   height: 100%;
   overflow: hidden;
@@ -8,6 +8,7 @@ html {
 body { 
   margin:0;
   padding:0;
+  margin-bottom: 90px;
 	-webkit-perspective: 1px;
 	        perspective: 1px;
 	-webkit-transform-style: preserve-3d;
@@ -16,6 +17,7 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
   font-family:'Nunito';
+  background-color: #000;
 }
 
 h2 {
@@ -125,7 +127,7 @@ h1{
   top:0;
   left:0;
   text-align: center;
-  font-family: 'Brush script MT';
+  font-family: 'Yellowtail';
 }
 #titre{
   height: 100px;
@@ -180,10 +182,6 @@ h1{
   -webkit-transform: translateZ(-1px) scale(2);
           transform: translateZ(-1px) scale(2);
 }
-
-#slide4 {
-  background: #222;
-}
 #main{
   margin-left:30%;
 }
@@ -221,9 +219,31 @@ h1{
   width:100%;
   z-index:10000;
 }
-#slide4{
-  display:none;
+/* #slide4 {
+  background: #222;
+} */
+/* .slide4{
+    position: relative;
+    padding: 20vh 10% 2vh 10%;
+    line-height: 10px;
+    height: 90px;
+    width: 100vw;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+            box-shadow: 0 -1px 10px rgba(0, 0, 0, .7);
+    /* -webkit-transform-style: inherit;
+            transform-style: inherit; */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
+.slide4 p{
+    line-height:5px;
+    color: #c9d8dd;
+    font-size:12px;
+} */ 
 
 #identify{
   z-index: 100000;
@@ -288,7 +308,9 @@ h1{
  .menuChapitre{
    padding-left:10%;
  }
-
+ /* .slide4 p{
+  font-size:14px;
+ } */
 }
 @media screen and (min-width: 768px){
   #titre{
@@ -318,6 +340,9 @@ h1{
  #slide1 .title, #slide3 .title{
   position: relative;
 }
+/* .slide4 p{
+  font-size:16px;
+} */
 }
 @media screen and (min-width: 992px){
   #titre{
@@ -338,7 +363,9 @@ h1{
   #slide2 img{
     display: block;
   }
-
+  /* .slide4 p{
+    font-size:20px;
+} */
 }
 @media screen and (min-width: 1100px){
   #titre{
@@ -355,5 +382,6 @@ h1{
   }
   #slide3 .title{
     margin-left: 0;
+    max-width: 50%;
   }
 }

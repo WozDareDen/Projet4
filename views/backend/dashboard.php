@@ -42,28 +42,38 @@ fclose($compteur_f2);
     <div class="main">
         <h1>Tableau de Bord</h1>
         <div class=" sortie commentsEdition commentsPannel">
-            <h2>Mes chapitres</h2>
+            <h2>Mes chapitres publiés</h2>
                 <ul>
                 <li><a href="admin.php?action=edition">Créez un nouveau chapitre</a></li>
-                <?php 
-    $rows = $postAll->fetchAll();  
-    $postAll->closeCursor();
-    foreach($rows as $data)
-{
-    ?>
+<?php 
+$rows = $postAll->fetchAll();  
+$postAll->closeCursor();
+foreach($rows as $data){
+?>
             <li class="list">Chapitre <?=($data['chapter_number'])?> : <?= htmlspecialchars($data['title']) ?><div class="icons"><i class="fa fa-check colorTeal">&nbsp;&nbsp;</i><a href="admin.php?action=edit&idChapter=<?=$data['id'] ?>"><i class="fa fa-pencil">&nbsp;&nbsp;</i></a><a href="admin.php?action=delete&idChapter=<?=$data['id'] ?>"><i class="fa fa-trash colorRed" ></i></a></div></li>        
 <?php      
-}
-// DASHBOARD COMMENTS LIST                
+}              
 ?>       </ul></div>
-        <div class="sortie commentsEdition">
+
+<div class=" sortie commentsEdition commentsPannel">
+            <h2>Mes chapitres en cours</h2>
+                <ul>
+               
+<?php 
+while($nope = $noPostAll->fetch()){ 
+?>
+            <li class="list">Chapitre <?=($nope['chapter_number'])?> : <?= htmlspecialchars($nope['title']) ?><div class="icons"><a href="admin.php?action=changeStatus&idChapter=<?=$nope['id'] ?>"><i class="fa fa-check yellow">&nbsp;&nbsp;</i></a><a href="admin.php?action=edit&idChapter=<?=$nope['id'] ?>"><i class="fa fa-pencil">&nbsp;&nbsp;</i></a><a href="admin.php?action=delete&idChapter=<?=$nope['id'] ?>"><i class="fa fa-trash colorRed" ></i></a></div></li>        
+<?php      
+}             
+?>       </ul></div>
+         <div class="sortie commentsEdition">
                
         
             <h2>Les commentaires signalés</h2>         
             <dl>
 <?php            
  while($com = $comAll->fetch()){    
-     ?>
+?>
                 <dt class="list">Chapitre : <?=$com['chapter_number'] ?></dt>               
                     <dd><?= $com['comment_text'] ?>
                     </dd>
