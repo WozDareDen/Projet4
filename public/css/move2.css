@@ -184,6 +184,9 @@ dt{
   #pseudo, #motDePasse{
     width:60%;
   }
+  .imageError{
+      display: none;
+  }
 /************************************************/
 /*****************RESPONSIVE*********************/
 /************************************************/
@@ -230,6 +233,9 @@ dt{
     }
     .commentsEdition{
         width: 80%;
+    }
+    .imageError{
+        display: block;
     }
 }
 @media screen and (min-width: 992px){

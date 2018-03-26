@@ -66,7 +66,7 @@ while($nope = $noPostAll->fetch()){
 <?php      
 }             
 ?>       </ul></div>
-         <div class="sortie commentsEdition">
+         <div id="ink" class="sortie commentsEdition">
                
         
             <h2>Les commentaires signalés</h2>         

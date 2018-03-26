@@ -2,7 +2,7 @@
 <?php ob_start(); ?>
     <div class="main">
         <h1>Ouch ! Une erreur est survenue !</h1>
-        <img src="public/images/tete2.jpg" alt="image d'erreur" title="image d'erreur" />
+        <img class="imageError" src="public/images/tete2.jpg" alt="image d'erreur" title="image d'erreur" />
         <p class="sortie" id="newOne"><?= 'Attention : '.$e->getMessage().' !'; ?>
         </p>
         <div class="sortie">

@@ -3,7 +3,7 @@
     <div class="main">
 <!--EDITION FORM-->        
         <h1>Interface d'Edition</h1>
-        <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=stock" method="post">
+        <form class="entree commentsEdition" name="formulaire" id="formulaire" action="admin.php?action=update" method="post">
             <input hidden type="number" name="idChapter" value="<?=$_GET['idChapter'] ?>"
             <label  for="title">Titre du Chapitre</label>
             <input type="text" id="title" name="title" value="<?=($post['title']) ?>" /></br>
@@ -12,7 +12,7 @@
             <label  for="chapter_img">Photo du Chapitre</label>
             <input type="file" id="chapter_img" name="chapter_img" />
             <textarea id="texte" name="chapter_text" rows="30" ><?=($post['chapter_text']) ?></textarea>
-            <input type="submit" value="sauvegarder" />
+            <input type="submit" value="modifier" />
         </form>
 <!--PRACTICAL ADVICES-->        
         <div id="advice" class="entree commentsEdition">

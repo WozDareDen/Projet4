@@ -67,7 +67,7 @@ function validCom(){
     $idComment = $_GET['idComment'];
     $adminManager = new AdminManager();
     $validComment = $adminManager->validComment($idComment);
-    header('Location: admin.php?action=dashboard');
+    header('Location: admin.php?action=dashboard#ink');
 }
 function theStatus(){
     $idChapter = $_GET['idChapter'];
