@@ -41,14 +41,14 @@ else{
                                 <div>
                                 <input type="submit" />
                                 </div>
-                        </form></br>
+                </form></br>
 <?php    
 }   
 // COMMENTS LIST
 $commentArray = $comments->fetchAll();
 if(empty($commentArray)){
 ?>
-                        <p>Il n'y a pas de commentaire.</p>
+                        <p>Soyez le premier à poster un commentaire.</p>
 <?php
 }
 else{
