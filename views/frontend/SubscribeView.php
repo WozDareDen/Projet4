@@ -17,11 +17,11 @@
                         </div>
                         <div>
                         <label for="pass">Mot de passe</label><br />
-                        <input type="password" id="pass" name="pass" required="valid" placeholder="choisissez votre mot de passe">
+                        <input type="password" id="pass" name="pass" required="valid" autocomplete="off" placeholder="choisissez votre mot de passe">
                         </div>
                         <div>
                         <label for="pass2">Confirmation du mot de passe</label><br />
-                        <input type="password" id="pass2" name="pass2" required="valid" placeholder="confirmez votre mot de passe">
+                        <input type="password" id="pass2" name="pass2" required="valid" autocomplete="off" placeholder="confirmez votre mot de passe">
                         </div>
                         <div>
                         <label for="mail">Adresse email</label><br />

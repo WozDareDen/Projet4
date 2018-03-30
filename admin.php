@@ -4,7 +4,7 @@ require('controller/backOffice.php');
 try{   
    if (isset($_GET['action'])) {       
         
-          if((isset($_POST['login']) && isset($_POST['pass'])) || (isset($_SESSION['username']) && ($_SESSION['v']==1)) ){               
+          if((isset($_SESSION['username']) && ($_SESSION['v']==1)) ){               
             if($_GET['action'] == 'dashboard'){  
             goToDashboard();
         } 

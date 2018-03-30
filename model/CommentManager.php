@@ -26,6 +26,7 @@ public function printComment(){
     $comAll = $db->query('SELECT comments.id, chapter_number, id_Chapters, sig, comment_text, DATE_FORMAT(comment_date, \'%d/%m/%Y\') AS comment_date_short FROM comments INNER JOIN chapters WHERE sig >2 && id_Chapters = chapters.id ORDER BY sig DESC');
     return $comAll;
 }
+// COUNT COMMENTS 
 public function commentStats(){
     $db = $this -> dbConnect();
     $comStats = $db->query('SELECT COUNT(*) FROM comments');

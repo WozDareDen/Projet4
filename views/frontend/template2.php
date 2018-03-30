@@ -76,7 +76,7 @@ if(empty($_SESSION['username'])){
                 </div>                     
                 <div>
                 <label for="pass">Mot de passe</label><br />
-                <input type="password" id="pass" name="pass" placeholder="et votre mot de passe">
+                <input type="password" id="pass" name="pass" autocomplete="off" placeholder="et votre mot de passe">
                 </div>
                 <div>
                 <input class="tpl2" id="submit" type="submit" value="GO !">
